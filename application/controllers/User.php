@@ -42,7 +42,8 @@ class User extends MY_Controller {
    */
   public function sign_out()
   {
-
+    $this->session->sess_destroy();
+    redirect('home');
   }
 
   /********* チェック関数 **********/
