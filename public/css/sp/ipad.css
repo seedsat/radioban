@@ -1,0 +1,8 @@
+/* ipad */
+@media only screen and ( max-width : 768px ) {
+  .topititle img {
+    width: 19%;
+    padding: 15px;
+    float: left;
+  }
+}

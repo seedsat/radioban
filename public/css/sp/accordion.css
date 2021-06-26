@@ -1,0 +1,60 @@
+/* アコーディオン */
+#accordion {
+  background-color: blue;
+  /*
+  background: -moz-linear-gradient(top, #FFC778, #FFF);
+  background: -webkit-linear-gradient(top, #FFC778, #FFF);
+  background: linear-gradient(to bottom, #FFC778, #FFF);
+  */
+}
+
+#accordion img {
+  float: left;
+  width: 11%;
+  padding: 5px 0 0 10px;
+}
+
+.accordion-container .accordion-title {
+  /*position: relative;*/
+  margin: 0;
+  padding: 15px 0 10px 60px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.accordion-container .accordion-title::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  width: 15px;
+  height: 2px;
+  /*縦線に*/
+  transform: rotate(90deg);
+  background: #fff;
+  transition: all .3s ease-in-out;
+}
+
+.accordion-container .accordion-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  /*横線*/
+  width: 15px;
+  height: 2px;
+  background: #fff;
+  transition: all .2s ease-in-out;
+}
+
+.accordion-container .accordion-title.open::before {
+  transform: rotate(180deg);
+}
+
+.accordion-container .accordion-title.open::after {
+  opacity: 0;
+}
+
+.accordion-content {
+  border: 1px solid #0079c1;
+}
