@@ -124,13 +124,13 @@
                     <span>メニュー</span>
                   </li>
                     <?php if($is_login == "1" or $is_login == "2"): ?>
-                      <li class="outlink"><a href="<?php echo base_url('/home'); ?>"><i class="fas fa-home"></i>TOP</a></li>
+                      <li class="outlink"><a href="<?php echo base_url(''); ?>"><i class="fas fa-home"></i>TOP</a></li>
                       <li class="pagelink"><a href="<?php echo base_url('mypage/').$user_id; ?>"><i class="fas fa-user"></i>マイページへ</a></li>
                       <li class="changelink"><a href="<?php echo base_url('change'); ?>"><i class="fas fa-user-edit"></i>変更・退会</a></li>
                       <li class="outlink"><a href="<?php echo base_url('sign_out'); ?>"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
                     <?php else: ?>
                   <li>
-                    <a href="<?php echo base_url('/home'); ?>">
+                    <a href="<?php echo base_url(''); ?>">
                       <i class="fas fa-home"></i>
                       <span>TOP</span>
                     </a>

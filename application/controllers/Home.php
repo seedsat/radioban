@@ -1,0 +1,105 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Home extends MY_Controller {
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->data['user_name'] = $this->session->userdata('user_name');
+        $this->data['is_login'] = $this->session->userdata('is_login');
+        $this->data['user_id']   = $this->session->userdata('user_id');
+        $this->load->library('my_form_validation');
+    }
+
+    /* TOPページ */
+    public function index($param = 0)
+    {
+      $data['user_id'] = $this->data['user_id'];
+
+      /* ページャー作成 */
+      // $offset = $param;
+      // $config['base_url']   = $_SERVER['REQUEST_URI'];
+      // $config['per_page']   = 10;
+      // $config['num_links']  = 5;
+      // $config['first_link'] = '最初';
+      // $config['last_link']  = '最後';
+
+      // $thread_data = $this->thread_model->get_detal_thread($data['user_id'], $config['per_page'], $offset);
+
+      // $data['count'] = count($this->thread_model->get_all_thread());
+      // $config['total_rows'] = $data['count'];
+
+      // $this->pagination->initialize($config);
+      // $data['links'] = $this->pagination->create_links();
+      // /* ページャー作成 */
+
+      // /* キーワード検索 PC版は必要かも。SPはトップで必要かも */
+      // $post = $this->input->post();
+
+      // if(!empty($post['search']))
+      // {
+      //     $data['program_seach'] = $this->program_model->search_program($post);
+      // }
+
+      // // ユーザー毎にいいねをしているスレを取得
+      // $good = $this->good_model->get_peruser_good($data['user_id']);
+
+      // // スレIDをキーに配列を作成
+      // foreach($thread_data as $td)
+      // {
+      //     $data['thread_data'][$td['thread_id']] = array(
+      //         'thread_id'      => $td['thread_id'],
+      //         'program_name'   => $td['program_name'],
+      //         'dir_name'       => $td['dir_name'],
+      //         'title'          => $td['title'],
+      //         'content'        => $td['content'],
+      //         'username'       => $td['name'],
+      //         'user_id'        => $td['user_id'],
+      //         'created_at'     => $td['created_at'],
+      //     );
+      // }
+
+      // if(!empty($data['thread_data']))
+      // {
+      //     // スレ配列のキーといいねしたスレIDを持っていれば赤く表示
+      //     foreach($data['thread_data'] as $threadid => $thre)
+      //     {
+      //         foreach($good as $gd)
+      //         {
+      //             if($threadid == $gd['thread_id'])
+      //             {
+      //                 $data['thread_data'][$threadid]['good'] = $gd['good_flag'];
+      //             }
+      //         }
+
+      //         // お気に入り件数
+      //         $counts = $this->good_model->count_good($threadid);
+
+      //         foreach($counts as $count)
+      //         {
+      //             if($threadid == $count['thread_id'])
+      //             {
+      //                 $data['thread_data'][$threadid]['count'] = count($counts); 
+      //             }
+      //         }
+
+      //         // 返信数
+      //         $reply_counts = $this->thread_model->count_reply($threadid);
+
+      //         foreach($reply_counts as $rcount)
+      //         {
+      //             if($threadid == $rcount['thread_id'])
+      //             {
+      //                 $data['thread_data'][$threadid]['rcount'] = count($reply_counts); 
+      //             }
+      //         }
+      //     }
+      // }
+      // else
+      // {
+      //     $data['thread_data'] = array();
+      // }
+      $this->show_view('/home/index', $data);
+    }
+}

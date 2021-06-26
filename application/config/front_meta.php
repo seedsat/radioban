@@ -1,8 +1,8 @@
 <?php
 $config['front_meta'] = array(
     'home'                => array('title' => 'TOP', 'description' => 'ラジボドとは、ラジオ好きのラジオ好きによるラジオ好きのための掲示板です。「ラジオが好きだけど周りで話す人がいない・・・」「この番組の面白いところやいいところを発信したい」など、テーマは無限。『とにかくラジオが好きだ！！』という思いを語り尽くす場です！！'),
-    'sign_up'               => array('title' => '新規登録'),
-    'sign_in'                => array('title' => 'ログイン'),
+    'sign_up'             => array('title' => '新規登録'),
+    'sign_in'              => array('title' => 'ログイン'),
     'change'               => array('title' => '会員情報変更・退会'),
     'passforget'           => array('title' => 'パスワード再設定'),
     'thread'               => array('title' => '新規投稿'),
