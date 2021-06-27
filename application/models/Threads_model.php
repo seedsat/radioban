@@ -33,7 +33,7 @@ class Threads_model extends CI_Model {
     }
 
     // TOPに表示させるための取得
-    public function get_detal_thread($user_id, $per_page, $offset)
+    public function get_detail_thread($per_page, $offset)
     {
         $this->db->select('program_name');
         $this->db->select('dir_name');
@@ -78,20 +78,20 @@ class Threads_model extends CI_Model {
     }
 
     // 親投稿IDで指定した親記事の取得
-    public function get_program_bbs($dirname, $thread_id)
+    public function get_bbs($dirname, $thread_id)
     {
         $this->db->select('threads.thread_id');
-        $this->db->select('users.email');
-        $this->db->select('users.name');
+        $this->db->select('users.user_email');
+        $this->db->select('users.user_name');
         $this->db->select('title');
         $this->db->select('content');
         $this->db->select('threads.created_at');
         $this->db->select('programs.program_name');
         $this->db->select('programs.program_id');
         $this->db->select('dir_name');
-        $this->db->select('users.id');
+        $this->db->select('users.user_id');
         $this->db->join('programs', 'threads.program_id = programs.program_id', 'left');
-        $this->db->join('users', 'threads.user_id = users.id', 'left');
+        $this->db->join('users', 'threads.user_id = users.user_id', 'left');
         $this->db->where('dir_name', $dirname);
         $this->db->where('threads.thread_id', $thread_id);
         return $this->db->get('threads')->result_array();
@@ -106,9 +106,9 @@ class Threads_model extends CI_Model {
         $this->db->select('replies.thread_id');
         $this->db->select('to_reply_id');
         $this->db->select('replies.created_at');
-        $this->db->select('users.name');
+        $this->db->select('user_name');
         $this->db->join('threads', 'replies.thread_id = threads.thread_id');
-        $this->db->join('users', 'replies.reply_user_id = users.id');
+        $this->db->join('users', 'replies.reply_user_id = users.user_id');
         $this->db->join('programs', 'replies.program_id = programs.program_id');
         $this->db->where('replies.thread_id', $thread_id);
         return $this->db->get('replies')->result_array();

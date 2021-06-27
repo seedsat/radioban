@@ -63,3 +63,6 @@ $route['(:num)'] = 'home/index/$1';
 
 /* Thread Controller */
 $route['newpost'] = 'thread/newpost';
+
+/* Programs Controller */
+$route['program/(:any)'] = "program/index/$1";

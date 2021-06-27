@@ -23,7 +23,7 @@ class Home extends MY_Controller {
       $config['first_link'] = '最初';
       $config['last_link']  = '最後';
 
-      $thread_data = $this->threads_model->get_detal_thread($data['user_id'], $config['per_page'], $offset);
+      $thread_data = $this->threads_model->get_detail_thread($config['per_page'], $offset);
 
       $data['count'] = count($this->threads_model->get_all_thread());
       $config['total_rows'] = $data['count'];
@@ -52,7 +52,7 @@ class Home extends MY_Controller {
           'dir_name'       => $td['dir_name'],
           'title'          => $td['title'],
           'content'        => $td['content'],
-          'user_name'       => $td['user_name'],
+          'user_name'      => $td['user_name'],
           'user_id'        => $td['user_id'],
           'created_at'     => $td['created_at'],
         );

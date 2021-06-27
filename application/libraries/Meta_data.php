@@ -20,7 +20,7 @@ class Meta_data {
       {
         $program_meta = $this->CI->config->item('program_meta');
         $dirname = ($this->CI->uri->segment('2')) ? $this->CI->uri->segment('2') : '';
-        $p_data = $this->CI->program_model->get_boradcaster_program($dirname);
+        $p_data = $this->CI->programs_model->get_boradcaster_program($dirname);
         $data['title']              = $p_data[0]['broadcast_name'];
         $data['program_name']       = $p_data[0]['program_name'];
         $data['broadcast_name']     = $p_data[0]['broadcast_name'];
@@ -32,12 +32,12 @@ class Meta_data {
         $data['url']                = $p_data[0]['url'];
         $data['description']        = $program_meta[$dirname]['description'];
       }
-      elseif($data['seg2'] === 'program_bbs')
+      elseif($data['seg2'] === 'bbs')
       {
         $dirname = ($this->CI->uri->segment('3')) ? $this->CI->uri->segment('3') : '';
         $thread_id = ($this->CI->uri->segment('4')) ? $this->CI->uri->segment('4') : '0';
-        $b_data = $this->CI->program_model->get_boradcaster_program($dirname);
-        $p_data = $this->CI->thread_model->get_program_bbs($dirname, $thread_id);
+        $b_data = $this->CI->programs_model->get_boradcaster_program($dirname);
+        $p_data = $this->CI->threads_model->get_bbs($dirname, $thread_id);
 
         $data['thread_title']       = $p_data[0]['title'];
         $data['program_name']       = $b_data[0]['program_name'];
@@ -46,7 +46,7 @@ class Meta_data {
         $data['program_finishtime'] = $b_data[0]['finishtime'];
         $data['officialsite']       = $b_data[0]['officialsite'];
         $data['mailaddress']        = $b_data[0]['mailaddress'];
-        //$data['day']                = $b_data[0]['day'];
+        $data['day']                = $b_data[0]['day_name'];
         $data['url']                = base_url().'program/'.$p_data[0]['dir_name'];
         $data['description']        = mb_substr($p_data[0]['content'], 0, 100);
       }

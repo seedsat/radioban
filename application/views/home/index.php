@@ -40,7 +40,7 @@
 			<?php foreach($thread_data as $td ): ?>
 				<div class="post">
 					<img src="<?php echo base_url('public/images/onair.png'); ?>">
-					<a href="<?php echo base_url('/thread/program_bbs/').$td['dir_name'].'/'.$td['thread_id']; ?>">
+					<a href="<?php echo base_url('/thread/bbs/').$td['dir_name'].'/'.$td['thread_id']; ?>">
 						<h2><?php echo $td['title']; ?></h2>
 					</a>
 					<a href="<?php echo base_url('program/').$td['dir_name']; ?>"><p>【<?php echo $td['program_name']; ?>】</p></a>

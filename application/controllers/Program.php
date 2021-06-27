@@ -14,80 +14,80 @@ class Program extends MY_Controller {
 
     public function index($dirname, $param = 0)
     {
-        $data['user_id'] = $this->data['userid'];
+			$data['user_id'] = $this->data['userid'];
 
-        if($dirname == "")
-        {
-            redirect('');
-        }
+			if($dirname == "")
+			{
+				redirect('');
+			}
 
-        $data['thread_data'] = "";
+			$data['thread_data'] = "";
 
-        /* ページャー作成 */
-        $offset = $param;
-        $config['base_url']   = "http://sattriomph.xsrv.jp/radio_test/program/".$dirname;
-        $config['per_page']   = 10;
-        $config['num_links']  = 5;
-        $config['first_link'] = '最初';
-        $config['last_link']  = '最後';
+			/* ページャー作成 */
+			$offset = $param;
+			$config['base_url']   = "http://sattriomph.xsrv.jp/radio_test/program/".$dirname;
+			$config['per_page']   = 10;
+			$config['num_links']  = 5;
+			$config['first_link'] = '最初';
+			$config['last_link']  = '最後';
 
-        $thread_data = $this->thread_model->get_individual_program($dirname, $config['per_page'], $offset);
-        $thread_datas = $this->thread_model->get_detal_thread($this->data['userid'], $config['per_page'], $offset);
-        $data['count'] = $this->thread_model->get_individual_program_count($dirname);
-        $config['total_rows'] = $data['count'];
+			$thread_data = $this->thread_model->get_individual_program($dirname, $config['per_page'], $offset);
+			$thread_datas = $this->thread_model->get_detal_thread($this->data['userid'], $config['per_page'], $offset);
+			$data['count'] = $this->thread_model->get_individual_program_count($dirname);
+			$config['total_rows'] = $data['count'];
 
-        $this->pagination->initialize($config);
-        $data['links'] = $this->pagination->create_links();
+			$this->pagination->initialize($config);
+			$data['links'] = $this->pagination->create_links();
 
-        $good = $this->good_model->get_peruser_good($this->data['userid']);
+			$good = $this->good_model->get_peruser_good($this->data['userid']);
 
-        if( isset($thread_data) && !empty($thread_data) )
-        {
-            foreach($thread_data as $td)
-            {
-                $data['thread_data'][$td['thread_id']] = array(
-                    'thread_id'      => $td['thread_id'],
-                    'program_name'   => $td['program_name'],
-                    'dir_name'       => $td['dir_name'],
-                    'thread_title'   => $td['thread_title'],
-                    'create_date'    => $td['create_date'],
-                );
-            }
+			if( isset($thread_data) && !empty($thread_data) )
+			{
+					foreach($thread_data as $td)
+					{
+					$data['thread_data'][$td['thread_id']] = array(
+						'thread_id'      => $td['thread_id'],
+						'program_name'   => $td['program_name'],
+						'dir_name'       => $td['dir_name'],
+						'thread_title'   => $td['thread_title'],
+						'create_date'    => $td['create_date'],
+					);
+				}
 
-            foreach($data['thread_data'] as $threadid => $thre)
-            {
-                foreach($good as $gd)
-                {
-                    if($threadid == $gd['thread_id'])
-                    {
-                        $data['thread_data'][$threadid]['good'] = $gd['good_flag'];
-                    }
-                }
+				foreach($data['thread_data'] as $threadid => $thre)
+				{
+					foreach($good as $gd)
+					{
+						if($threadid == $gd['thread_id'])
+						{
+							$data['thread_data'][$threadid]['good'] = $gd['good_flag'];
+						}
+					}
 
-                // お気に入り件数
-                $counts = $this->good_model->count_good($threadid);
+					// お気に入り件数
+					$counts = $this->good_model->count_good($threadid);
 
-                foreach($counts as $count)
-                {
-                    if($threadid == $count['thread_id'])
-                    {
-                        $data['thread_data'][$threadid]['count'] = count($counts); 
-                    }
-                }
+					foreach($counts as $count)
+					{
+						if($threadid == $count['thread_id'])
+						{
+							$data['thread_data'][$threadid]['count'] = count($counts); 
+						}
+				}
 
-                // 返信数
-                $reply_counts = $this->thread_model->count_reply($threadid);
+					// 返信数
+					$reply_counts = $this->thread_model->count_reply($threadid);
 
-                foreach($reply_counts as $rcount)
-                {
-                    if($threadid == $rcount['thread_id'])
-                    {
-                        $data['thread_data'][$threadid]['rcount'] = count($reply_counts); 
-                    }
-                }
-            }
-        }
-        $this->show_view('program', $data);
+					foreach($reply_counts as $rcount)
+					{
+						if($threadid == $rcount['thread_id'])
+						{
+							$data['thread_data'][$threadid]['rcount'] = count($reply_counts); 
+						}
+					}
+				}
+			}
+				$this->show_view('program/program', $data);
     }
 
     /* 全番組情報 */

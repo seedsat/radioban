@@ -17,7 +17,7 @@
                             <option value="<?php echo $bc_id; ?>"><?php echo $bcname; ?></option>
                         <?php endforeach; ?>
                         </select>
-                         
+
                         <select name="program_id" id="lv2Pulldown" disabled="disabled">
                         <option value="0">▼選択</option>
                         <?php foreach($select_programs as $select_program): ?>
@@ -36,8 +36,8 @@
                     <input type="text" name="thread_title" placeholder="タイトル" value="<?php echo set_value('thread_title'); ?>"></input>
                 </div>
                 <div class="form-item">
-                    <span style="color:red;"><?php echo form_error('userpassword'); ?></span>
-                    <input type="password" id="password" name="userpassword" placeholder="パスワード"></input>
+                    <span style="color:red;"><?php echo form_error('user_password'); ?></span>
+                    <input type="password" id="password" name="user_password" placeholder="パスワード"></input>
                 </div>
                 <div class="form-item">
                     <span style="color:red;"><?php echo form_error('thread_content'); ?></span>

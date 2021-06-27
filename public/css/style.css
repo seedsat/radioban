@@ -512,6 +512,10 @@ margin-top: 20px;
   color: #f00;
 }
 
+.bbs-button {
+  display: flex;
+}
+
 
 /************* thread *************/
 

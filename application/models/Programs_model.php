@@ -40,7 +40,7 @@ class Programs_model extends CI_Model {
         $this->db->select('finishtime');
         $this->db->select('officialsite');
         $this->db->select('mailaddress');
-        $this->db->select('days.name');
+        $this->db->select('day_name');
         $this->db->select('broadcast_name');
         $this->db->select('timezones.name');
         $this->db->join('broadcasts', 'broadcasts.broadcast_id = programs.broadcast_id');
