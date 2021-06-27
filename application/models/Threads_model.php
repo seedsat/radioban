@@ -37,14 +37,14 @@ class Threads_model extends CI_Model {
     {
         $this->db->select('program_name');
         $this->db->select('dir_name');
-        $this->db->select('name');
+        $this->db->select('user_name');
         $this->db->select('threads.thread_id');
         $this->db->select('title');
         $this->db->select('content');
         $this->db->select('threads.created_at');
         $this->db->select('threads.user_id');
         $this->db->from('threads');
-        $this->db->join('users', 'threads.user_id = users.id', 'left');
+        $this->db->join('users', 'threads.user_id = users.user_id', 'left');
         $this->db->join('broadcasts', 'threads.broadcast_id = broadcasts.broadcast_id', 'left');
         $this->db->join('programs', 'threads.program_id = programs.program_id', 'left');
         $this->db->order_by('threads.thread_id', 'desc');
