@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','form_validation','meta_data', 'session','user_agent');
+$autoload['libraries'] = array('database','form_validation','my_form_validation','meta_data', 'session','user_agent');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('users_model');
+$autoload['model'] = array('users_model','programs_model','threads_model');

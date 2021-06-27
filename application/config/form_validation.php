@@ -45,7 +45,7 @@ array(
         'rules' => 'required'
     ),
     array(
-        'field' => 'userpassword',
+        'field' => 'user_password',
         'label' => 'パスワード',
         'rules' => 'required'
     ),

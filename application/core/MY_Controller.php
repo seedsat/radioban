@@ -55,5 +55,4 @@ class MY_Controller extends CI_Controller {
         $this->load->view('common/footer');
     }
   }
-  /* 11/28作成 */
 }

@@ -58,4 +58,8 @@ $route['sign_up']  = "user/sign_up";
 $route['sign_in']  = "user/sign_in";
 $route['sign_out'] = "user/sign_out";
 
+/* Home Controller */
 $route['(:num)'] = 'home/index/$1';
+
+/* Thread Controller */
+$route['newpost'] = 'thread/newpost';
