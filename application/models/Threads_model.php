@@ -123,18 +123,18 @@ class Threads_model extends CI_Model {
     }
 
     // 返信投稿の挿入
-    public function insert_reply($data)
+    public function insert_reply($data, $user_id)
     {
-        $insert_data = array(
-            'reply_title'       => $data['reply_title'], 
-            'reply_content'     => $data['reply_content'], 
-            'thread_id'         => $data['thread_id'], 
-            'reply_user_id'     => $data['userid'], 
-            'to_reply_id'       => $data['to_reply_id'] ? $data['to_reply_id'] : $data['thread_id'],
-            'program_id'        => $data['program_id'],
-            'created_at' => date("Y/m/d H:i:s"),
-        );
-        $this->db->insert('replies', $insert_data);
+    $insert_data = array(
+      'reply_title'       => $data['reply_title'],
+      'reply_content'     => $data['reply_content'],
+      'thread_id'         => $data['thread_id'],
+      'reply_user_id'     => $user_id,
+      'to_reply_id'       => $data['to_reply_id'] ? $data['to_reply_id'] : $data['thread_id'],
+      'program_id'        => $data['program_id'],
+      'created_at' => date("Y/m/d H:i:s"),
+    );
+    $this->db->insert('replies', $insert_data);
     }
 
     // 親投稿に返信をした投稿への返信を取得

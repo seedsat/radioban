@@ -197,9 +197,8 @@ class Users_model extends CI_Model {
     }
 
     // ユーザーデータが合っているかチェック（メルアド登録)
-    public function check_userdata($email, $password, $userid)
+    public function check_userdata($email, $password)
     {
-        $this->db->where('user_id', $userid);
         $this->db->where('user_email', $email);
         $this->db->where('password', md5($password));
         $query = $this->db->get('users');

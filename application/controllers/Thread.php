@@ -86,17 +86,18 @@ class Thread extends MY_Controller {
     public function reply($dirname, $thread_id)
     {
       $data['user_id']    = $this->session->userdata('user_id');
-      $data['program_bbs'] = $this->threads_model->get_program_bbs($dirname, $thread_id);
+      $data['is_login']   = $this->session->userdata('is_login');
+      $data['program_bbs'] = $this->threads_model->get_bbs($dirname, $thread_id);
 
-      if($this->data['is_login'] == "1")
+      if($data['is_login'] == "1")
       {
         if($this->form_validation->run('reply'))
           {
             $post = $this->input->post();
-            $userdata = $this->users_model->check_userdata($post['useremail'], $post['userpassword'], $post['userid']);
+            $userdata = $this->users_model->check_userdata($post['user_email'], $post['user_password']);
             if($userdata == TRUE)
             {
-                $this->threads_model->insert_reply($post);
+                $this->threads_model->insert_reply($post, $data['user_id']);
                 redirect();
             }
             else
@@ -119,7 +120,7 @@ class Thread extends MY_Controller {
             }
           }
         }
-      $this->show_view('reply', $data);
+      $this->show_view('thread/reply', $data);
     }
 
     // 返信投稿への返信
@@ -133,10 +134,10 @@ class Thread extends MY_Controller {
         if($this->form_validation->run('reply'))
         {
           $post = $this->input->post();
-          $userdata = $this->users_model->check_userdata($post['useremail'], $post['userpassword'], $post['userid']);
+          $userdata = $this->users_model->check_userdata($post['useremail'], $post['userpassword']);
           if($userdata == TRUE)
           {
-              $this->threads_model->insert_reply($post);
+              $this->threads_model->insert_reply($post, $data['user_id']);
               redirect();
           }
           else
