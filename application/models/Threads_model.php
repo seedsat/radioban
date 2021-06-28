@@ -117,10 +117,18 @@ class Threads_model extends CI_Model {
     // 返信IDから個別返信投稿を取得
     public function get_one_reply_bbs($reply_id)
     {
-        $this->db->join('users', 'replies.reply_user_id = users.user_id');
-        $this->db->where('reply_id', $reply_id);
-        return $this->db->get('replies')->result_array();
-    }
+      $this->db->select('reply_id');
+      $this->db->select('reply_title');
+      $this->db->select('reply_content');
+      $this->db->select('replies.thread_id');
+      $this->db->select('to_reply_id');
+      $this->db->select('program_id');
+      $this->db->select('replies.created_at');
+      $this->db->select('user_name');
+      $this->db->join('users', 'replies.reply_user_id = users.user_id');
+      $this->db->where('reply_id', $reply_id);
+      return $this->db->get('replies')->result_array();
+  }
 
     // 返信投稿の挿入
     public function insert_reply($data, $user_id)
@@ -132,7 +140,7 @@ class Threads_model extends CI_Model {
       'reply_user_id'     => $user_id,
       'to_reply_id'       => $data['to_reply_id'] ? $data['to_reply_id'] : $data['thread_id'],
       'program_id'        => $data['program_id'],
-      'created_at' => date("Y/m/d H:i:s"),
+      'created_at'        => date("Y/m/d H:i:s"),
     );
     $this->db->insert('replies', $insert_data);
     }

@@ -31,8 +31,7 @@ class User extends MY_Controller {
     {
       $post = $this->input->post();
       $data['user_data']  = $this->users_model->user_sing_in($post);
-      var_dump($data['user_data']);exit;
-      #redirect();
+      redirect();
     }
     $this->show_view('/user/sign_in');
   }

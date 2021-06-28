@@ -582,15 +582,6 @@ margin-top: 20px;
 
 /************* 各投稿エリア *************/
 
-/************* 広告・サイド *************/
-.advertise {
-    width: 350px;
-    height: 500px;
-    float: left;
-    background-color: yellow;
-}
-/************* 広告・サイド *************/
-
 /************* footer *************/
 #footer {
     width: 1200px;
@@ -903,6 +894,10 @@ body {
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+#search {
+  display: flex;
 }
 
 /*----------------page-wrapper----------------*/
