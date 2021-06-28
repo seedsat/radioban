@@ -60,6 +60,10 @@ $route['sign_out'] = "user/sign_out";
 
 /* Home Controller */
 $route['(:num)'] = 'home/index/$1';
+$route['broadcaster'] = 'home/broadcaster';
+$route['all_programs'] = 'home/all_programs';
+$route['privacy'] = 'home/privacy';
+$route['contact'] = 'home/contact';
 
 /* Thread Controller */
 $route['newpost'] = 'thread/newpost';
