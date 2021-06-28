@@ -1,7 +1,7 @@
 <!-- maincontents -->
 <div class="program">
     <h1>【<?php echo $meta_data['program_name']; ?>】</h1>
-    <h3><?php echo $meta_data['broadcast_name']; ?> : <?php if(strpos($meta_data['day'], '第') != false): ?><?php echo $meta_data['day']; ?><?php else: ?>毎週<?php echo $meta_data['day']; ?><?php endif; ?>曜日<?php echo $meta_data['program_starttime']; ?>〜<?php echo $meta_data['program_finishtime']; ?></h3>
+    <h3><?php echo $meta_data['broadcast_name']; ?> : <?php if(strpos($meta_data['day_name'], '第') != false): ?><?php echo $meta_data['day_name']; ?><?php else: ?>毎週<?php echo $meta_data['day_name']; ?><?php endif; ?>曜日<?php echo $meta_data['program_starttime']; ?>〜<?php echo $meta_data['program_finishtime']; ?></h3>
     <h3>公式HP : <a href="<?php echo $meta_data['officialsite']; ?>" target="_blank"><?php echo $meta_data['officialsite']; ?></a></h3>
     <h3><?php if($meta_data['mailaddress'] != ""): ?>メール : <a href="mailto:<?php echo $meta_data['mailaddress']; ?>"><?php echo $meta_data['mailaddress']; ?></a><?php endif; ?></h3>
 </div>

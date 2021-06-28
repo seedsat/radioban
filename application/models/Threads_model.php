@@ -55,24 +55,23 @@ class Threads_model extends CI_Model {
     // 番組別に投稿を取得
     public function get_individual_program($dirname, $per_page, $offset)
     {
-        $this->db->select('program_name');
-        $this->db->select('dir_name');
-        $this->db->select('thread_id');
-        $this->db->select('thread_title');
-        $this->db->select('threads.create_date');
-        $this->db->join('thread', 'threads.program_id = programs.program_id');
-        $this->db->where('dir_name', $dirname);
-        if($per_page && $offset)
-        {
-            $this->db->limit($per_page, $offset);
-        }
-        return $this->db->get('programs')->result_array();
+      $this->db->select('program_name');
+      $this->db->select('dir_name');
+      $this->db->select('thread_id');
+      $this->db->select('title');
+      $this->db->select('day_name');
+      $this->db->select('threads.created_at');
+      $this->db->join('threads', 'threads.program_id = programs.program_id');
+      $this->db->join('days', 'days.id = programs.day_id');
+      $this->db->where('dir_name', $dirname);
+      $this->db->limit($per_page, $offset);
+      return $this->db->get('programs')->result_array();
     }
 
     // 番組別投稿の件数を取得
     public function get_individual_program_count($dirname)
     {
-        $this->db->join('thread', 'programs.program_id = threads.program_id');
+        $this->db->join('threads', 'programs.program_id = threads.program_id');
         $this->db->where('dir_name', $dirname);
         return count($this->db->get('programs')->result_array());
     }

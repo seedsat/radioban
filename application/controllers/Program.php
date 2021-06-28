@@ -21,7 +21,7 @@ class Program extends MY_Controller {
 				redirect('');
 			}
 
-			$data['thread_data'] = "";
+			$data['thread_data'] = array();
 
 			/* ページャー作成 */
 			$offset = $param;
@@ -31,26 +31,26 @@ class Program extends MY_Controller {
 			$config['first_link'] = '最初';
 			$config['last_link']  = '最後';
 
-			$thread_data = $this->thread_model->get_individual_program($dirname, $config['per_page'], $offset);
-			$thread_datas = $this->thread_model->get_detal_thread($this->data['userid'], $config['per_page'], $offset);
-			$data['count'] = $this->thread_model->get_individual_program_count($dirname);
+			$thread_data = $this->threads_model->get_individual_program($dirname, $config['per_page'], $offset);
+			$thread_datas = $this->threads_model->get_detail_thread($this->data['userid'], $config['per_page'], $offset);
+			$data['count'] = $this->threads_model->get_individual_program_count($dirname);
 			$config['total_rows'] = $data['count'];
 
 			$this->pagination->initialize($config);
 			$data['links'] = $this->pagination->create_links();
 
-			$good = $this->good_model->get_peruser_good($this->data['userid']);
+			$good = $this->goods_model->get_peruser_good($this->data['userid']);
 
-			if( isset($thread_data) && !empty($thread_data) )
+			if( !empty($thread_data) )
 			{
-					foreach($thread_data as $td)
-					{
+				foreach($thread_data as $td)
+				{
 					$data['thread_data'][$td['thread_id']] = array(
 						'thread_id'      => $td['thread_id'],
 						'program_name'   => $td['program_name'],
 						'dir_name'       => $td['dir_name'],
-						'thread_title'   => $td['thread_title'],
-						'create_date'    => $td['create_date'],
+						'thread_title'   => $td['title'],
+						'create_date'    => $td['created_at'],
 					);
 				}
 
@@ -65,7 +65,7 @@ class Program extends MY_Controller {
 					}
 
 					// お気に入り件数
-					$counts = $this->good_model->count_good($threadid);
+					$counts = $this->goods_model->count_good($threadid);
 
 					foreach($counts as $count)
 					{
@@ -73,10 +73,10 @@ class Program extends MY_Controller {
 						{
 							$data['thread_data'][$threadid]['count'] = count($counts); 
 						}
-				}
+					}
 
 					// 返信数
-					$reply_counts = $this->thread_model->count_reply($threadid);
+					$reply_counts = $this->threads_model->count_reply($threadid);
 
 					foreach($reply_counts as $rcount)
 					{
@@ -87,7 +87,7 @@ class Program extends MY_Controller {
 					}
 				}
 			}
-				$this->show_view('program/program', $data);
+			$this->show_view('program/program', $data);
     }
 
     /* 全番組情報 */

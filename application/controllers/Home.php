@@ -17,7 +17,7 @@ class Home extends MY_Controller {
 
     /* ページャー作成 */
     $offset = $param;
-    $config['base_url']   = $_SERVER['REQUEST_URI'];
+    $config['base_url']   = 'http://xs291437.xsrv.jp/radio-board/';
     $config['per_page']   = 10;
     $config['num_links']  = 5;
     $config['first_link'] = '最初';

@@ -43,6 +43,7 @@ class Programs_model extends CI_Model {
         $this->db->select('day_name');
         $this->db->select('broadcast_name');
         $this->db->select('timezones.name');
+        $this->db->select('url');
         $this->db->join('broadcasts', 'broadcasts.broadcast_id = programs.broadcast_id');
         $this->db->join('days', 'days.id = programs.day_id');
         $this->db->join('timezones', 'timezones.id = programs.timezone_id');
