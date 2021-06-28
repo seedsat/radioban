@@ -64,6 +64,9 @@ $route['broadcaster'] = 'home/broadcaster';
 $route['all_programs'] = 'home/all_programs';
 $route['privacy'] = 'home/privacy';
 $route['contact'] = 'home/contact';
+$route['good/(:num)']          = 'home/good/$1';
+$route['good_delete/(:num)']   = 'home/good_delete/$1';
+
 
 /* Thread Controller */
 $route['newpost'] = 'thread/newpost';

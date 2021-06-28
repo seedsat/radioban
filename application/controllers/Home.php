@@ -41,7 +41,7 @@ class Home extends MY_Controller {
     }
 
     // ユーザー毎にいいねをしているスレを取得
-    #$good = $this->good_model->get_peruser_good($data['user_id']);
+    $good = $this->goods_model->get_peruser_good($data['user_id']);
 
     // スレIDをキーに配列を作成
     foreach($thread_data as $td)
@@ -61,35 +61,35 @@ class Home extends MY_Controller {
   if(!empty($data['thread_data']))
   {
     // スレ配列のキーといいねしたスレIDを持っていれば赤く表示
-    foreach($data['thread_data'] as $threadid => $thre)
+    foreach($data['thread_data'] as $thread_id => $thre)
     {
-      // foreach($good as $gd)
-      // {
-      //     if($threadid == $gd['thread_id'])
-      //     {
-      //         $data['thread_data'][$threadid]['good'] = $gd['good_flag'];
-      //     }
-      // }
+      foreach($good as $gd)
+      {
+        if($thread_id == $gd['thread_id'])
+        {
+            $data['thread_data'][$thread_id]['good'] = $gd['good_flag'];
+        }
+      }
 
       // お気に入り件数
-      // $counts = $this->good_model->count_good($threadid);
+      $counts = $this->goods_model->count_good($thread_id);
 
-      // foreach($counts as $count)
-      // {
-      //   if($threadid == $count['thread_id'])
-      //   {
-      //       $data['thread_data'][$threadid]['count'] = count($counts);
-      //   }
-      // }
+      foreach($counts as $count)
+      {
+        if($thread_id == $count['thread_id'])
+        {
+          $data['thread_data'][$thread_id]['count'] = count($counts);
+        }
+      }
 
         // 返信数
-        $reply_counts = $this->threads_model->count_reply($threadid);
+        $reply_counts = $this->threads_model->count_reply($thread_id);
 
         foreach($reply_counts as $rcount)
         {
-          if($threadid == $rcount['thread_id'])
+          if($thread_id == $rcount['thread_id'])
           {
-              $data['thread_data'][$threadid]['rcount'] = count($reply_counts);
+            $data['thread_data'][$thread_id]['rcount'] = count($reply_counts);
           }
         }
       }
@@ -145,5 +145,22 @@ class Home extends MY_Controller {
       }
     }
     $this->show_view('home/contact', $data);
+  }
+
+  /* お気にりボタン */
+  public function good($thread_id)
+  {
+    $data['thread_id'] = $thread_id;
+    $data['user_id']   = $this->session->userdata('user_id');
+    $this->goods_model->insert_good($data);
+    redirect('');
+  }
+
+  /* お気に入りの削除 */
+  public function good_delete($thread_id)
+  {
+    $data['user_id']   = $this->session->userdata('user_id');
+    $this->goods_model->delete_good($data['user_id'], $thread_id);
+    redirect('');
   }
 }
