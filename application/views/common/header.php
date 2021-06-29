@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php if(isset($meta_data['description'])): ?>
-    <meta name="description" content="<?php echo $meta_data['description']; ?>">
+      <meta name="description" content="<?php echo $meta_data['description']; ?>">
     <?php else: ?>
-    <meta name="description" content="">
+      <meta name="description" content="">
     <?php endif; ?>
     <meta name="author" content="">
-  <?php if(isset($meta_data['program_name']) && isset($meta_data['title'])): ?>
-    <title>ラジボド | <?php echo $meta_data['title']; ?> | <?php echo $meta_data['program_name']; ?></title>
-  <?php elseif(isset($meta_data['program_name']) && isset($meta_data['thread_title'])): ?>
-    <title>ラジボド | <?php echo $meta_data['program_name']; ?> | <?php echo $meta_data['thread_title']; ?></title>
-  <?php else: ?>
-    <title>ラジボド | <?php echo $meta_data['title']; ?></title>
-  <?php endif;?>
+    <?php if(isset($meta_data['program_name']) && isset($meta_data['title'])): ?>
+      <title>ラジボド | <?php echo $meta_data['title']; ?> | <?php echo $meta_data['program_name']; ?></title>
+    <?php elseif(isset($meta_data['program_name']) && isset($meta_data['thread_title'])): ?>
+      <title>ラジボド | <?php echo $meta_data['program_name']; ?> | <?php echo $meta_data['thread_title']; ?></title>
+    <?php else: ?>
+      <title>ラジボド | <?php echo $meta_data['title']; ?></title>
+    <?php endif;?>
 
   <meta name="robots" content="noindex">
   <meta name="robots" content="nofollow">
@@ -83,8 +83,10 @@
                 <div class="user-info">
                   <span class="user-name">
                     <strong>
-                      <?php if($is_login == "1" or $is_login == "2"): ?>
+                      <?php if($is_login == "1" ): ?>
                         <p>こんにちは。<br /><?php echo $user_name; ?>さん。</p>
+                      <?php elseif ($is_login == "2"): ?>
+                        <p>こんにちは。<br /><?php echo $twitter_username; ?>さん。</p>
                       <?php else: ?>
                         <p>こんにちは。ゲストさん。</p>
                       <?php endif; ?>

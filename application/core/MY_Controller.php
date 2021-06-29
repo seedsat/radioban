@@ -34,6 +34,7 @@ class MY_Controller extends CI_Controller {
     $data['user_name'] = $this->session->userdata('user_name');
     $data['user_id']   = $this->session->userdata('user_id');
     $data['is_login']  = $this->session->userdata('is_login');
+    $data['twitter_username']  = $this->session->userdata('twitter_username');
 
     if(isset($data['user_id']))
     {

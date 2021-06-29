@@ -42,11 +42,33 @@ class Users_model extends CI_Model {
     }
   }
 
+  /* twitterでのログイン情報の取得 */
+  public function twitter_userlogin($id_str)
+  {
+    $this->db->where('id_str', $id_str);
+    $users = $this->db->get('twitters')->row_array();
+
+    if(isset($users))
+    {
+      $userdata = array(
+          'user_id'  => $users['user_id'],
+          'twitter_username' => $users['twitter_username'],
+          'is_login' => '2',
+      );
+      $this->session->set_userdata($userdata);
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
   /* twitterで登録されているかデータ検索 */
-  public function serch_twitter_user($twitter_user_data)
+  public function search_twitter_user($twitter_user_data)
   {
     $this->db->where('id_str', $twitter_user_data['id_str']);
-    return $this->db->get('users')->result_array();
+    return $this->db->get('twitters')->result_array();
   }
 
   /* twitterでの登録 */
@@ -54,12 +76,11 @@ class Users_model extends CI_Model {
   {
     $twitter_insert_data = array(
       'id_str'       => $twitter_user_data['id_str'],
-      'username'     => $twitter_user_data['name'],
+      'twitter_username'     => $twitter_user_data['name'],
       'screen_name'  => $twitter_user_data['screen_name'],
-      'introduction' => $twitter_user_data['introduction'],
-      'create_date'  => date("Y/m/d H:i:s"),
+      'created_at'   => date("Y/m/d H:i:s"),
     );
-    $this->db->insert('users', $twitter_insert_data);
+    $this->db->insert('twitters', $twitter_insert_data);
   }
 
   /* twitterデータの更新 */
