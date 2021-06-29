@@ -11,10 +11,6 @@ class Home extends MY_Controller {
   /* TOPページ */
   public function index($param = 0)
   {
-    $data['user_name'] = $this->session->userdata('user_name');
-    $data['is_login'] = $this->session->userdata('is_login');
-    $data['user_id']   = $this->session->userdata('user_id');
-
     /* ページャー作成 */
     $offset = $param;
     $config['base_url']   = 'http://xs291437.xsrv.jp/radio-board/';
@@ -25,23 +21,23 @@ class Home extends MY_Controller {
 
     $thread_data = $this->threads_model->get_detail_thread($config['per_page'], $offset);
 
-    $data['count'] = count($this->threads_model->get_all_thread());
+    $data['count']        = count($this->threads_model->get_all_thread());
     $config['total_rows'] = $data['count'];
 
     $this->pagination->initialize($config);
     $data['links'] = $this->pagination->create_links();
     /* ページャー作成 */
 
-    /* キーワード検索 PC版は必要かも。SPはトップで必要かも */
+    /* キーワード検索 */
     $post = $this->input->post();
 
     if(!empty($post['search']))
     {
-        $data['program_seach'] = $this->programs_model->search_program($post);
+        $data['program_search'] = $this->programs_model->search_program($post);
     }
 
     // ユーザー毎にいいねをしているスレを取得
-    $good = $this->goods_model->get_peruser_good($data['user_id']);
+    $good = $this->goods_model->get_peruser_good($this->session->userdata('user_id'));
 
     // スレIDをキーに配列を作成
     foreach($thread_data as $td)
@@ -104,7 +100,6 @@ class Home extends MY_Controller {
   /* 放送局一覧 */
   public function broadcaster()
   {
-    $data['user_id']   = $this->session->userdata('user_id');
     $data['broadcasters'] = $this->programs_model->get_broadcaster();
     $this->show_view('home/broadcaster', $data);
   }
@@ -112,7 +107,6 @@ class Home extends MY_Controller {
   /* 全番組情報 */
   public function all_programs()
   {
-    $data['user_id']   = $this->session->userdata('user_id');
     $data['all_programs'] = $this->programs_model->get_program();
     $this->show_view('home/programs', $data);
   }
@@ -120,15 +114,13 @@ class Home extends MY_Controller {
   /* プライバシーポリシー */
   public function privacy()
   {
-    $data['user_id']   = $this->session->userdata('user_id');
-    $this->show_view('home/privacy', $data);
+    $this->show_view('home/privacy');
   }
 
   /* お問い合わせ */
   public function contact()
   {
     $data['error'] = "";
-    $data['user_id']   = $this->session->userdata('user_id');
 
     if($this->form_validation->run('contact'))
     {
@@ -161,6 +153,68 @@ class Home extends MY_Controller {
   {
     $data['user_id']   = $this->session->userdata('user_id');
     $this->goods_model->delete_good($data['user_id'], $thread_id);
+    redirect('');
+  }
+
+  /* 情報の変更 */
+  public function change()
+  {
+    $data = array();
+    $data['user_id'] = $this->session->userdata('user_id');
+
+    $data['user_datas'] = $this->users_model->detail_user($this->session->userdata('user_id'));
+
+    if(empty($data['user_datas']))
+    {
+        redirect('sign_in');
+    }
+
+    /*
+      * 登録情報の変更
+      * is_login = 1：メルアドでの登録
+      * is_login = 2：twitterでの登録
+    */
+    if($this->session->userdata['is_login'] == "1")
+    {
+      if($this->form_validation->run('change') == true)
+      {
+        $post = $this->input->post();
+        if( (!empty($post)) && ($data['user_datas'][0]['user_id'] === $post['user_id']) )
+        {
+          $this->users_model->update_userdata($post);
+          redirect();
+        }
+        else
+        {
+            $data['error'] = "会員情報が登録されていません。";
+        }
+      }
+    }
+    else
+    {
+      $post = $this->input->post();
+      if( (!empty($post)) && ($data['user_datas'][0]['user_id'] === $post['userid']) )
+      {
+        $this->users_model->update_twitter_userdata($post);
+        redirect();
+      }
+    }
+    $this->show_view('home/change', $data);
+  }
+
+  /* 退会（親スレは残して子スレは削除） */
+  public function unsubscribe()
+  {
+    $userid = $this->session->userdata('user_id');
+    /* usersから削除 */
+    $this->users_model->delete_user($userid);
+    /* replyから返信した投稿を削除 */
+    $this->threads_model->delete_reply($userid);
+    /* goodからいいねIDを削除 */
+    $this->goods_model->delete_after_unsubscribe($userid);
+
+    /* 退会後にsessionを切ってトップにリダイレクト */
+    $this->session->sess_destroy();
     redirect('');
   }
 }

@@ -76,14 +76,11 @@ class Users_model extends CI_Model {
   }
 
   /* 会員情報の変更 */
-  public function update_userdata($data, $programdata)
+  public function update_userdata($data)
   {
     $update_data = array(
-      'username'    => $data['username'],
-      'email'       => $data['useremail'],
-      'favarite1'   => $programdata['favarite1'],
-      'favarite2'   => $programdata['favarite2'],
-      'favarite3'   => $programdata['favarite3'],
+      'user_name'  => $data['username'],
+      'user_email' => $data['useremail'],
       'updated_at' => date("Y/m/d H:i:s"),
     );
     $this->db->where('user_id', $data['user_id']);

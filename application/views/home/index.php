@@ -13,7 +13,7 @@
 <div class="maintopic">
 	<div class="topics">
 		<div class="topihead">
-			<?php if( isset($program_seach) && !empty($program_seach)): ?>
+			<?php if( isset($program_search)): ?>
 				<img src="<?php echo base_url('public/images/radio.png'); ?>"><h2>番組検索結果</h2>
 			<?php else: ?>
 				<img src="<?php echo base_url('public/images/radio.png'); ?>"><h2>ラジボドトッピクス</h2>
@@ -23,8 +23,8 @@
 			</ul>
 		</div>
 
-		<?php if( isset($program_seach) && !empty($program_seach)): ?>
-			<?php foreach($program_seach as $ps): ?>
+		<?php if( isset($program_search)): ?>
+			<?php foreach($program_search as $ps): ?>
 				<div class="search">
 					<img src="<?php echo base_url('public/images/onair.png'); ?>">
 					<a href="<?php echo base_url('program/').$ps['dir_name']; ?>">

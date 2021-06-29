@@ -27,13 +27,22 @@ class User extends MY_Controller {
    */
   public function sign_in()
   {
+    $data = array();
     if ($this->form_validation->run('sign_in'))
     {
       $post = $this->input->post();
       $data['user_data']  = $this->users_model->user_sing_in($post);
-      redirect();
+      if ($data['user_data'] == FALSE)
+      {
+        $data['error'] = 'ログイン情報が違います';
+        var_dump($data);
+      }
+      else
+      {
+        redirect();
+      }
     }
-    $this->show_view('/user/sign_in');
+    $this->show_view('/user/sign_in', $data);
   }
 
   /**

@@ -66,6 +66,9 @@ $route['privacy'] = 'home/privacy';
 $route['contact'] = 'home/contact';
 $route['good/(:num)']          = 'home/good/$1';
 $route['good_delete/(:num)']   = 'home/good_delete/$1';
+$route['change'] = 'home/change';
+$route['unsubscribe'] = 'home/unsubscribe';
+
 
 
 /* Thread Controller */

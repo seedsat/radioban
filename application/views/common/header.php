@@ -40,18 +40,6 @@
     <!-- font awsome -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('public/css/font-awesome.min.css') ?>">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104523495-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-104523495-2');
-    </script>
-
-    <script data-ad-client="ca-pub-6378543171443372" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </head>
 
   <body>
@@ -95,11 +83,11 @@
                 <div class="user-info">
                   <span class="user-name">
                     <strong>
-                        <?php if($is_login == "1" or $is_login == "2"): ?>
-                            <p>こんにちは。<br /><?php echo $user_name; ?>さん。</p>
-                        <?php else: ?>
-                            <p>こんにちは。ゲストさん。</p>
-                        <?php endif; ?>
+                      <?php if($is_login == "1" or $is_login == "2"): ?>
+                        <p>こんにちは。<br /><?php echo $user_name; ?>さん。</p>
+                      <?php else: ?>
+                        <p>こんにちは。ゲストさん。</p>
+                      <?php endif; ?>
                     </strong>
                   </span>
                 </div>
@@ -109,11 +97,11 @@
                 <div>
                   <div class="input-group">
                     <form action="#" method="post" id="search">
-                        <input  class="form-control" type="text" name="search" placeholder=" 番組名を検索" id="search-text">
-                        <button type="submit" class="search-submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
+                      <input  class="form-control" type="text" name="search" placeholder=" 番組名を検索" id="search-text">
+                      <button type="submit" class="search-submit">
+                        <i class="fas fa-search"></i>
+                      </button>
+                  </form>
                   </div>
                 </div>
               </div>
@@ -125,7 +113,6 @@
                   </li>
                     <?php if($is_login == "1" or $is_login == "2"): ?>
                       <li class="outlink"><a href="<?php echo base_url(''); ?>"><i class="fas fa-home"></i>TOP</a></li>
-                      <li class="pagelink"><a href="<?php echo base_url('mypage/').$user_id; ?>"><i class="fas fa-user"></i>マイページへ</a></li>
                       <li class="changelink"><a href="<?php echo base_url('change'); ?>"><i class="fas fa-user-edit"></i>変更・退会</a></li>
                       <li class="outlink"><a href="<?php echo base_url('sign_out'); ?>"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
                     <?php else: ?>
