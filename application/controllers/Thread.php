@@ -47,15 +47,15 @@ class Thread extends MY_Controller {
         }
       }
     }
-    elseif($this->data['is_login'] == "2")
+    elseif($data['is_login'] == "2")
     {
-      if($this->form_validation->run('tpost'))
+      if($this->form_validation->run('post'))
       {
-        $post = $this->input->post();
-        $userdata = $this->users_model->check_twitter_userdata($post['user_id']);
+        $userdata = $this->users_model->check_twitter_userdata($this->session->userdata('id_str'));
 
         if($userdata == TRUE)
         {
+          $post = $this->input->post();
           $this->threads_model->insert_post_content($post);
           redirect('');
         }

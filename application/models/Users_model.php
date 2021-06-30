@@ -51,7 +51,7 @@ class Users_model extends CI_Model {
     if(isset($users))
     {
       $userdata = array(
-          'user_id'  => $users['user_id'],
+          'id_str'  => $id_str,
           'twitter_username' => $users['twitter_username'],
           'is_login' => '2',
       );
@@ -232,10 +232,10 @@ class Users_model extends CI_Model {
     }
 
     // twitterでの登録データがあるかチェック
-    public function check_twitter_userdata($userid)
+    public function check_twitter_userdata($id_str)
     {
-      $this->db->where('user_id', $userid);
-      $query = $this->db->get('users');
+      $this->db->where('id_str', $id_str);
+      $query = $this->db->get('twitters');
 
       if($query->num_rows() > 0)
       {
