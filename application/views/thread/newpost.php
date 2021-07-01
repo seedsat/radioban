@@ -93,10 +93,10 @@
          <?php else: ?>
             <h4 style="text-align: center;">投稿するにはログインするか会員登録をしてください</h4>
             <div class="button-panel">
-                <a href="<?php echo base_url('login'); ?>"><input type="submit" class="button" value="ログインする"></input></a>
+                <a href="<?php echo base_url('sign_in'); ?>"><input type="submit" class="button" value="ログインする"></input></a>
             </div>
             <div class="button-panel">
-                <a href="<?php echo base_url('signup'); ?>"><input type="submit" class="button" value="会員登録する"></input></a>
+                <a href="<?php echo base_url('sign_up'); ?>"><input type="submit" class="button" value="会員登録する"></input></a>
             </div>
         <?php endif; ?>
             </form>

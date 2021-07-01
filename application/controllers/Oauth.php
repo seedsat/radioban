@@ -68,18 +68,18 @@ class Oauth extends MY_Controller
     {
       /* データがなければインサートしてログインしてhomeにリダイレクト */
       $this->users_model->insert_twitter_user($twitter_user_data);
-      $this->users_model->twitter_userlogin($twitter_user_data['id_str']);
+      $this->users_model->twitter_user_login($twitter_user_data['id_str']);
     }
-    elseif(!empty($userdata) && $twitter_user_data['name'] != $userdata[0]['twitter_username'] || $twitter_user_data['screen_name'] != $userdata[0]['screen_name'] )
+    elseif(!empty($userdata) && $twitter_user_data['name'] != $userdata[0]['twitter_name'] || $twitter_user_data['screen_name'] != $userdata[0]['screen_name'] )
     {
       /* twitterの名前とアカウント名が違えばアップデートしてhomeにリダイレクト */
       $this->users_model->update_twitter_user($twitter_user_data);
-      $this->users_model->twitter_userlogin($userdata[0]['id_str']);
+      $this->users_model->twitter_user_login($userdata[0]['id_str']);
     }
     else
     {
       /* $twitter_user_dataが同じであればログインしてhomeへ */
-      $this->users_model->twitter_userlogin($userdata[0]['id_str']);
+      $this->users_model->twitter_user_login($userdata[0]['id_str']);
     }
     session_regenerate_id();
     redirect('');

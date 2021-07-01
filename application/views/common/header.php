@@ -51,17 +51,19 @@
 
         <div id="pankuzu">
           <p>
-            <?php if(isset($meta_data['title']) && $meta_data['title'] !== 'TOP'): ?> <a href="<?php echo base_url(''); ?>"> ラジボド</a> >  
+            <?php if(isset($meta_data['title']) && $meta_data['title'] !== 'TOP'): ?> <a href="<?php echo base_url(''); ?>"> ラジボド</a> >
               <!-- 放送局 -->
               <?php echo $meta_data['title']; ?>
               <!-- 番組 -->
-              <?php if(isset($meta_data['program_name'])): ?> > 
-                  <?php echo $meta_data['program_name']; ?>
+              <?php if(isset($meta_data['program_name'])): ?> >
+                <?php echo $meta_data['program_name']; ?>
               <?php endif; ?></a>
             <?php elseif(isset($meta_data['thread_title'])): ?> <a href="<?php echo base_url(''); ?>">ラジボド</a> >
-              <a href="<?php if(isset($meta_data['url'])): ?><?php echo $meta_data['url'];  ?><?php endif; ?>"><?php echo $meta_data['program_name']; ?></a> 
-              <?php if(isset($meta_data['thread_title'])): ?> > 
-                  <?php echo $meta_data['thread_title']; ?>
+              <a href="<?php if(isset($meta_data['url'])): ?>
+                <?php echo $meta_data['url'];  ?>
+              <?php endif; ?>"><?php echo $meta_data['program_name']; ?></a>
+              <?php if(isset($meta_data['thread_title'])): ?> >
+                <?php echo $meta_data['thread_title']; ?>
               <?php endif; ?></a>
             <?php endif; ?>
           </p>
@@ -86,7 +88,7 @@
                       <?php if($is_login == "1" ): ?>
                         <p>こんにちは。<br /><?php echo $user_name; ?>さん。</p>
                       <?php elseif ($is_login == "2"): ?>
-                        <p>こんにちは。<br /><?php echo $twitter_username; ?>さん。</p>
+                        <p>こんにちは。<br /><?php echo $twitter_name; ?>さん。</p>
                       <?php else: ?>
                         <p>こんにちは。ゲストさん。</p>
                       <?php endif; ?>
@@ -113,30 +115,34 @@
                   <li class="header-menu">
                     <span>メニュー</span>
                   </li>
-                    <?php if($is_login == "1" or $is_login == "2"): ?>
+                    <?php if($is_login == "1"): ?>
                       <li class="outlink"><a href="<?php echo base_url(''); ?>"><i class="fas fa-home"></i>TOP</a></li>
                       <li class="changelink"><a href="<?php echo base_url('change'); ?>"><i class="fas fa-user-edit"></i>変更・退会</a></li>
                       <li class="outlink"><a href="<?php echo base_url('sign_out'); ?>"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
+                    <?php elseif ($is_login == "2"): ?>
+                      <li class="outlink"><a href="<?php echo base_url(''); ?>"><i class="fas fa-home"></i>TOP</a></li>
+                      <li class="changelink"><a href="<?php echo base_url('unsubscribe'); ?>"><i class="fas fa-user-edit"></i>退会</a></li>
+                      <li class="outlink"><a href="<?php echo base_url('sign_out'); ?>"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
                     <?php else: ?>
-                  <li>
-                    <a href="<?php echo base_url(''); ?>">
-                      <i class="fas fa-home"></i>
-                      <span>TOP</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?php echo base_url('sign_in'); ?>">
-                      <i class="fas fa-sign-in-alt"></i>
-                      <span>ログイン</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?php echo base_url('sign_up'); ?>">
-                      <i class="fas fa-user-plus"></i>
-                      <span>新規登録</span>
-                    </a>
-                  </li>
-                <?php endif; ?>
+                      <li>
+                        <a href="<?php echo base_url(''); ?>">
+                          <i class="fas fa-home"></i>
+                          <span>TOP</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="<?php echo base_url('sign_in'); ?>">
+                          <i class="fas fa-sign-in-alt"></i>
+                          <span>ログイン</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="<?php echo base_url('sign_up'); ?>">
+                          <i class="fas fa-user-plus"></i>
+                          <span>新規登録</span>
+                        </a>
+                      </li>
+                    <?php endif; ?>
                   <li class="sidebar-dropdown">
                     <a href="#">
                       <i class="fas fa-podcast"></i>

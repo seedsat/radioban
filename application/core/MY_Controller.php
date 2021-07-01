@@ -31,10 +31,10 @@ class MY_Controller extends CI_Controller {
     $data['meta_data'] = $this->meta_data->meta_data();
 
     /* セッション情報 */
-    $data['user_name'] = $this->session->userdata('user_name');
-    $data['user_id']   = $this->session->userdata('user_id');
-    $data['is_login']  = $this->session->userdata('is_login');
-    $data['twitter_username']  = $this->session->userdata('twitter_username');
+    $data['user_name']    = $this->session->userdata('user_name');
+    $data['user_id']      = $this->session->userdata('user_id');
+    $data['is_login']     = $this->session->userdata('is_login');
+    $data['twitter_name'] = $this->session->userdata('name');
 
     if(isset($data['user_id']))
     {

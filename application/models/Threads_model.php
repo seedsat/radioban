@@ -4,10 +4,10 @@
 class Threads_model extends CI_Model {
 
     // 投稿記事の挿入
-    public function insert_post_content($data)
+    public function insert_post_content($data, $user_id = null)
     {
         $insert_data = array(
-            'user_id'      => $data['userid'],
+            'user_id'      => $data['userid'] ? $data['userid'] : $user_id,
             'broadcast_id' => $data['broadcast_id'],
             'program_id'   => $data['program_id'],
             'title'        => $data['thread_title'],
@@ -25,10 +25,10 @@ class Threads_model extends CI_Model {
     }
 
     // user_idで指定して投稿記事を取得 */
-    public function get_user_thread($userid)
+    public function get_user_thread($user_id)
     {
         $this->db->join('programs', 'threads.program_id = programs.program_id');
-        $this->db->where('user_id', $userid);
+        $this->db->where('user_id', $user_id);
         return $this->db->get('threads')->result_array();
     }
 
@@ -159,7 +159,7 @@ class Threads_model extends CI_Model {
     }
 
     // ユーザーIDを指定して返信投稿を取得
-    public function get_user_reply($userid)
+    public function get_user_reply($user_id)
     {
         $this->db->select('replies.reply_id');
         $this->db->select('replies.reply_title');
@@ -172,7 +172,7 @@ class Threads_model extends CI_Model {
         $this->db->join('users', 'users.id = replies.reply_user_id', 'left');
         $this->db->join('threads', 'replies.thread_id = threads.thread_id', 'left');
         $this->db->join('programs', 'replies.program_id = programs.program_id', 'left');
-        $this->db->where('reply_user_id', $userid);
+        $this->db->where('reply_user_id', $user_id);
         return $this->db->get('replies')->result_array();
     }
 
@@ -184,32 +184,32 @@ class Threads_model extends CI_Model {
     }
 
     /* 退会したらthreadテーブルにデータがあれば削除 */
-    public function delete_thread($userid)
+    public function delete_thread($user_id)
     {
-        $this->db->where('user_id', $userid);
+        $this->db->where('user_id', $user_id);
         $this->db->delete('thread');
     }
 
     /* ユーザーIDで退会後に削除 */
-    public function delete_reply($userid)
+    public function delete_reply($user_id)
     {
-        $this->db->where('reply_user_id', $userid);
+        $this->db->where('reply_user_id', $user_id);
         $this->db->delete('replies');
     }
 
     /* $logintime間に投稿された数 */
-    public function get_logintime_post($logintime)
+    public function get_logintime_post($login_time)
     {
-        $this->db->where('create_date <', $logintime[0]['create_date']);
-        $this->db->where('create_date >', $logintime[1]['create_date']);
+        $this->db->where('create_date <', $login_time[0]['create_date']);
+        $this->db->where('create_date >', $login_time[1]['create_date']);
         return $this->db->get('thread')->result_array();
     }
 
     /* $logintime間に返信された数 */
-    public function get_logintime_reply($logintime)
+    public function get_login_time_reply($login_time)
     {
-        $this->db->where('reply_create_date <', $logintime[0]['create_date']);
-        $this->db->where('reply_create_date >', $logintime[1]['create_date']);
+        $this->db->where('reply_create_date <', $login_time[0]['create_date']);
+        $this->db->where('reply_create_date >', $login_time[1]['create_date']);
         return $this->db->get('replies')->result_array();
     }
 }
