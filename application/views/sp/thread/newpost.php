@@ -15,7 +15,7 @@
                         <option value="<?php echo $bc_id; ?>"><?php echo $bcname; ?></option>
                     <?php endforeach; ?>
                     </select>
-                     
+
                     <select name="program_id" id="lv2Pulldown" disabled="disabled">
                     <option value="0">▼選択</option>
                     <?php foreach($select_programs as $select_program): ?>
@@ -57,9 +57,8 @@
         <?php else: ?>
             <h4 style="text-align: center;">投稿するにはログインするか<br />会員登録をしてください</h4 style="text-align: center;">
             <div class="sp-form-footer">
-                <p class="button-twitter"><a href="<?php echo base_url('oauth/twitter'); ?>"><i class="fab fa-twitter"></i> Twitterを使う</a></p>
+                <p class="button-twitter"><a href="<?php echo base_url('oauth/twitter'); ?>"><i class="fab fa-twitter"></i> Twitterでログインする</a></p>
                 <p class="button-pink"><a href="<?php echo base_url('signup'); ?>">新規登録</a></p>
-                <p class="button-pink"><a href="<?php echo base_url('passforget'); ?>">パスワードを忘れた</a></p>
             </div>
         <?php endif; ?>
     </div><!-- form -->

@@ -28,15 +28,20 @@
             <p class="postdata">投稿日:<?php echo date('Y年n月j日', strtotime($td['created_at'])); ?> </p>
             <p class="sort">
                 <a href="<?php echo base_url('thread/reply/').$td['dir_name'].'/'.$td['thread_id']; ?>"><i class="far fa-comment-alt"></i></a>&nbsp;<?php if(isset($td['rcount'])): ?><?php echo $td['rcount']; ?><?php else: ?>0<?php endif; ?>
-                <?php if($is_login <= 2): ?>
-                    <a href="<?php echo ('good/').$td['thread_id']; ?>">
+                <?php if($is_login == "1" or $is_login == "2"): ?>
+                    <a href="<?php echo base_url('good/').$td['thread_id']; ?>">
                 <?php endif; ?>
+
                 <?php if(isset($td['good']) && $td['good'] === "1"): ?>
-                   <a href="<?php echo ('good_delete/').$td['thread_id']; ?>"><i class="fas fa-heart" style="color:red;"></i></a>
+                    <a href="<?php echo base_url('good_delete/').$td['thread_id']; ?>"><i class="fas fa-heart" style="color:red;"></i></a>
                 <?php else: ?>
                     <i class="far fa-heart"></i>
                 <?php endif; ?>
-                </a>&nbsp;<?php if(isset($td['count'])): ?><?php echo $td['count']; ?><?php else: ?>0<?php endif; ?>
+
+                <?php if(isset($td['count'])): ?><?php echo $td['count']; ?>
+                <?php else: ?>
+                    0
+                <?php endif; ?>
             </p>
         </div>
         <?php endforeach; ?>

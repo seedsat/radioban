@@ -20,5 +20,4 @@
     </div><!-- form -->
     <div class="sp-form-footer">
         <p class="button-twitter"><a href="<?php echo base_url('oauth/twitter'); ?>"><i class="fab fa-twitter"></i> Twitterでログインする</a></p>
-        <p class="button-pink"><a href="<?php echo base_url('passforget'); ?>">パスワードを忘れた</a></p>
     </div>

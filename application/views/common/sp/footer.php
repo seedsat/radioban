@@ -36,7 +36,7 @@
         <!-- Custom Theme JavaScript -->
         <script src="<?php echo base_url('public/js/sp/'); ?>startmin.js"></script>
 
-        <script type="text/javascript" src="http://sattriomph.xsrv.jp/radio_test/public/js/pulldown.js"></script>
+        <script type="text/javascript" src="http://xs291437.xsrv.jp/radio-board/public/js/pulldown.js"></script>
 
         <!-- Page-Level Demo Scripts - Tables - Use for reference -->
         <script>

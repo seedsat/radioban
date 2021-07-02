@@ -50,14 +50,13 @@
         <?php else: ?>
             <h4 style="text-align: center;">投稿するにはログインするか<br />会員登録をしてください</h4 style="text-align: center;">
             <div class="sp-button-panel">
-                <a href="<?php echo base_url('login'); ?>"><input type="submit" class="button-pink" value="ログインする"></input></a>
+                <a href="<?php echo base_url('sign_in'); ?>"><input type="submit" class="button-pink" value="ログインする"></input></a>
             </div>
             <div class="sp-button-panel">
-                <a href="<?php echo base_url('signup'); ?>"><input type="submit" class="button-pink" value="会員登録する"></input></a>
+                <a href="<?php echo base_url('sign_up'); ?>"><input type="submit" class="button-pink" value="会員登録する"></input></a>
             </div>
             <div class="sp-form-footer" id="twitterbutton">
                 <p class="button-twitter"><a href="<?php echo base_url('oauth/twitter'); ?>"><i class="fab fa-twitter"></i> Twitterでログインする</a></p>
-                <p class="button-twitter"><a href="<?php echo base_url('oauth/twitter'); ?>"><i class="fab fa-twitter"></i> Twitterで登録する</a></p>
             </div>
         <?php endif; ?>
     </form>

@@ -51,18 +51,6 @@
         <script src="<?php echo base_url('public/js/sp/jquery.meanmenu.min.js'); ?>"></script>
         <script src="<?php echo base_url('public/js/sp/navi.js'); ?>"></script>
         <script src="<?php echo base_url('public/js/sp/toggle.js'); ?>"></script>
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104523495-2"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-104523495-2');
-        </script>
-
-        <script data-ad-client="ca-pub-6378543171443372" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
 
 
@@ -76,32 +64,29 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!-- /.navbar-top-links -->    
+                <!-- /.navbar-top-links -->
                 <div id="header_sub"><h4>〜ラジオ好きが集まる掲示板〜</h4></div>
 
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <?php if($is_login >= 1): ?>
+                            <?php if($is_login == "1"): ?>
                                 <li><a href="#">こんにちは【<?php echo $username; ?>】さん</a></li>
+                            <?php elseif ($is_login == "2"): ?>
+                                <li><a href="#">こんにちは【<?php echo $twitter_name; ?>】さん</a></li>
                             <?php else: ?>
                                 <li><a href="#">こんにちはゲストさん</a></li>
                             <?php endif; ?>
                             <li>
                                 <a href="<?php echo base_url(''); ?>"><i class="fas fa-home"></i> TOP</a>
                             </li>
-                            <?php if($is_login >= 1):?>
-                                <li>
-                                    <a href="<?php echo base_url('mypage/').$user_id; ?>"><i class="fas fa-edit"></i> マイページ</a>
-                                </li>
-                            <?php endif; ?>
                             <?php if($is_login == NULL):?>
                                 <li>
-                                    <a href="<?php echo base_url('signup'); ?>"><i class="fas fa-user-plus"></i> 新規登録</a>
+                                    <a href="<?php echo base_url('sign_up'); ?>"><i class="fas fa-user-plus"></i> 新規登録</a>
                                     <!-- /.nav-second-level -->
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('login'); ?>"><i class="fas fa-sign-in-alt"></i> ログイン</a>
+                                    <a href="<?php echo base_url('sign_in'); ?>"><i class="fas fa-sign-in-alt"></i> ログイン</a>
                                     <!-- /.nav-second-level -->
                                 </li>
                             <?php endif; ?>
@@ -124,7 +109,7 @@
                             <?php endif; ?>
                             <?php if($is_login >= 1):?>
                                 <li>
-                                    <a href="<?php echo base_url('login/logout'); ?>"><i class="fas fa-sign-out-alt"></i> ログアウト</a>
+                                    <a href="<?php echo base_url('sign_out'); ?>"><i class="fas fa-sign-out-alt"></i> ログアウト</a>
                                     <!-- /.nav-second-level -->
                                 </li>
                             <?php endif; ?>
