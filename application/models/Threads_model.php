@@ -82,6 +82,7 @@ class Threads_model extends CI_Model {
         $this->db->select('threads.thread_id');
         $this->db->select('users.user_email');
         $this->db->select('users.user_name');
+        $this->db->select('users.twitter_name');
         $this->db->select('title');
         $this->db->select('content');
         $this->db->select('threads.created_at');
@@ -105,7 +106,8 @@ class Threads_model extends CI_Model {
         $this->db->select('replies.thread_id');
         $this->db->select('to_reply_id');
         $this->db->select('replies.created_at');
-        $this->db->select('user_name');
+        $this->db->select('users.user_name');
+        $this->db->select('users.twitter_name');
         $this->db->join('threads', 'replies.thread_id = threads.thread_id');
         $this->db->join('users', 'replies.reply_user_id = users.user_id');
         $this->db->join('programs', 'replies.program_id = programs.program_id');
