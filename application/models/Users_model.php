@@ -128,17 +128,17 @@ class Users_model extends CI_Model {
   }
 
   /* ユーザーIDで情報を取得 */
-  public function detail_user($userid)
+  public function detail_user($user_id)
   {
-    $this->db->where('user_id', $userid);
+    $this->db->where('user_id', $user_id);
     return $this->db->get('users')->result_array();
   }
 
   /* $logintimeの間に登録したユーザーの取得 */
-  public function get_logintime_user($logintime)
+  public function get_login_time_user($login_time)
   {
-    $this->db->where('create_date <', $logintime[0]['create_date']);
-    $this->db->where('create_date >', $logintime[1]['create_date']);
+    $this->db->where('created_at <', $login_time[0]['created_at']);
+    $this->db->where('created_at >', $login_time[1]['created_at']);
     return $this->db->get('users')->result_array();
   }
 

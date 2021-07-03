@@ -57,3 +57,33 @@ class MY_Controller extends CI_Controller {
     }
   }
 }
+
+class Admin_controller extends MY_Controller {
+
+  /**
+   * constructor
+   *
+   * @return  void
+   */
+  public function __construct()
+  {
+      parent::__construct();
+      $data = $this->data;
+  }
+
+  /**
+   * header、footerを付けてview表示
+   *
+   * @param   string
+   * @param   array
+   * @return  void
+   */
+  protected function admin_show_view($view, $data = NULL)
+  {
+      $data['is_admin_login'] = $this->session->userdata('is_admin_login');
+
+      $this->load->view('admin/common/header', $data);
+      $this->load->view($view, $data);
+      $this->load->view('admin/common/footer');
+  }
+}

@@ -53,7 +53,7 @@ class Threads_model extends CI_Model {
     }
 
     // 番組別に投稿を取得
-    public function get_individual_program($dirname, $per_page, $offset)
+    public function get_individual_program($dirname)
     {
       $this->db->select('program_name');
       $this->db->select('dir_name');
@@ -64,7 +64,6 @@ class Threads_model extends CI_Model {
       $this->db->join('threads', 'threads.program_id = programs.program_id');
       $this->db->join('days', 'days.id = programs.day_id');
       $this->db->where('dir_name', $dirname);
-      $this->db->limit($per_page, $offset);
       return $this->db->get('programs')->result_array();
     }
 
@@ -108,6 +107,7 @@ class Threads_model extends CI_Model {
         $this->db->select('replies.created_at');
         $this->db->select('users.user_name');
         $this->db->select('users.twitter_name');
+        $this->db->select('users.user_id');
         $this->db->join('threads', 'replies.thread_id = threads.thread_id');
         $this->db->join('users', 'replies.reply_user_id = users.user_id');
         $this->db->join('programs', 'replies.program_id = programs.program_id');
@@ -200,18 +200,18 @@ class Threads_model extends CI_Model {
     }
 
     /* $logintime間に投稿された数 */
-    public function get_logintime_post($login_time)
+    public function get_login_time_post($login_time)
     {
-        $this->db->where('create_date <', $login_time[0]['create_date']);
-        $this->db->where('create_date >', $login_time[1]['create_date']);
-        return $this->db->get('thread')->result_array();
+        $this->db->where('created_at <', $login_time[0]['created_at']);
+        $this->db->where('created_at >', $login_time[1]['created_at']);
+        return $this->db->get('threads')->result_array();
     }
 
     /* $logintime間に返信された数 */
     public function get_login_time_reply($login_time)
     {
-        $this->db->where('reply_create_date <', $login_time[0]['create_date']);
-        $this->db->where('reply_create_date >', $login_time[1]['create_date']);
+        $this->db->where('created_at <', $login_time[0]['created_at']);
+        $this->db->where('created_at >', $login_time[1]['created_at']);
         return $this->db->get('replies')->result_array();
     }
 }

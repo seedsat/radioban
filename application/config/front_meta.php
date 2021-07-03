@@ -1552,6 +1552,10 @@ $config['program_meta'] = array(
 /* ラジオ日本 */
 
 /* TOKYO FM */
+    'tfmdarehana' => array(
+        'title' => '山崎怜奈の誰かに話したかったこと。', 
+        'description' => '毎週月〜木曜の13時からは TOKYO FMで「山崎怜奈の誰かに話したかったこと。」を放送中'
+    ),
     'tfmteacher' => array(
         'title' => 'ジブラルタ生命 ありがとう、先生!', 
         'description' => '毎週月・水・金曜の7時19分からは TOKYO FMで「ジブラルタ生命 ありがとう、先生!」を放送中'

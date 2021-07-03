@@ -76,3 +76,16 @@ $route['newpost'] = 'thread/newpost';
 
 /* Programs Controller */
 $route['program/(:any)'] = "program/index/$1";
+
+/* AdminController */
+$route['admin'] = 'admin/home/index';
+
+/* Programrelated */
+$routes['admin/programrelated/broadcasters_detail/(:num)'] = "admin/programrelated/broadcasters_detail/$1";
+
+/* admin/thraed */
+
+
+/* admin-Login */
+$routes['admin/login']  = "admin/login/index";
+$routes['admin/logout'] = "admin/login/logout";

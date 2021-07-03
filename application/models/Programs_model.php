@@ -61,9 +61,9 @@ class Programs_model extends CI_Model {
     /* 放送局別の番組名取得 */
     public function get_broadcast_programs($broadcast_id)
     {
-        $this->db->join('programs', 'broadcaster.broadcast_id = programs.broadcast_id', 'left');
-        $this->db->where('broadcaster.broadcast_id', $broadcast_id);
-        return $this->db->get('broadcaster')->result_array();
+        $this->db->join('programs', 'broadcasts.broadcast_id = programs.broadcast_id', 'left');
+        $this->db->where('broadcasts.broadcast_id', $broadcast_id);
+        return $this->db->get('broadcasts')->result_array();
     }
 
     /* 放送曜日をdaysテーブルから取得 */
@@ -75,22 +75,22 @@ class Programs_model extends CI_Model {
     /* 時間帯をtimezoneテーブルから取得 */
     public function get_timezone()
     {
-        return $this->db->get('timezone')->result_array();
+        return $this->db->get('timezones')->result_array();
     }
 
     /* 番組情報を追加 */
     public function insert_program($data)
     {
         $insert_data = array(
-            'program_name'       => $data['program_name'],
-            'dir_name'           => $data['dir_name'],
-            'program_day'        => $data['program_day'],
-            'broadcast_id'       => $data['broadcast_id'],
-            'timezone_id'        => $data['timezone_id'],
-            'program_starttime'  => $data['program_starttime'],
-            'program_finishtime' => $data['program_finishtime'],
-            'officialsite'       => $data['officialsite'],
-            'mailaddress'        => $data['mailaddress'],
+            'program_name' => $data['program_name'],
+            'dir_name'     => $data['dir_name'],
+            'day_id'       => $data['program_day'],
+            'broadcast_id' => $data['broadcast_id'],
+            'timezone_id'  => $data['timezone_id'],
+            'starttime'    => $data['program_starttime'],
+            'finishtime'   => $data['program_finishtime'],
+            'officialsite' => $data['officialsite'],
+            'mailaddress'  => $data['mailaddress'],
         );
         $this->db->insert('programs', $insert_data);
     }

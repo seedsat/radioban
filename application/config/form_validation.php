@@ -152,12 +152,12 @@ $config = array(
 	// login
 	'admin_login' => array(
 		array(
-				'field' => 'loginid',
+				'field' => 'login_id',
 				'label' => 'ログインID',
 				'rules' => 'required'
 		),
 		array(
-				'field' => 'loginpw',
+				'field' => 'login_pw',
 				'label' => 'パスワード',
 				'rules' => 'required'
 		),

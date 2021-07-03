@@ -48,7 +48,7 @@
                 <?php foreach($reply_bbs as $rb ): ?>
                 <div class="title">
                     <h2>【<?php echo $rb['reply_title']; ?>】</h2>
-                    <p><?php echo $rb['username']; ?>&nbsp;投稿日：<?php echo date('Y/n/j', strtotime($rb['reply_create_date'])); ?>&nbsp;<?php echo date('G:i', strtotime($rb['create_date'])); ?></p>
+                    <p><?php echo $rb['user_name']; ?>&nbsp;投稿日：<?php echo date('Y/n/j', strtotime($rb['created_at'])); ?>&nbsp;<?php echo date('G:i', strtotime($rb['created_at'])); ?></p>
                 </div>
                 <div class="content">
                     <p><?php echo nl2br($rb['reply_content']); ?></p>
@@ -62,15 +62,19 @@
                     <input type="text" name="reply_title" placeholder="タイトル" value="<?php echo set_value('to_reply_title'); ?>"></input>
                 </div>
                 <div class="form-item">
-                    <span style="color:red;"><?php echo form_error('username'); ?></span>
-                    <input type="text" name="username" placeholder="ユーザーネーム" value="<?php echo $username; ?>" readonly="readonly"></input>
+                    <span style="color:red;"><?php echo form_error('user_name'); ?></span>
+                    <?php if($is_login == '1'): ?>
+						<input type="text" name="username" placeholder="ユーザーネーム" value="<?php echo $user_name; ?>"></input>
+					<?php  else: ?>
+						<input type="text" name="username" placeholder="ユーザーネーム" value="<?php echo $twitter_name; ?>"></input>
+					<?php endif; ?>
                 </div>
                 <div class="form-item">
                     <span style="color:red;"><?php echo form_error('reply_content'); ?></span>
                     <textarea rows="30" cols="100" name="reply_content" placeholder="返信内容"  value="<?php echo set_value('to_reply_content'); ?>"></textarea>
                 </div>
                 <div class="form-item">
-                    <input type="hidden" name="userid" value="<?php echo $userid; ?>" ></input>
+                    <input type="hidden" name="userid" value="<?php echo $user_id; ?>" ></input>
                     <input type="hidden" name="thread_id" value="<?php echo $reply_bbs[0]['thread_id']; ?>"></input>
                     <input type="hidden" name="program_id" value="<?php echo $reply_bbs[0]['program_id']; ?>"></input>
                     <input type="hidden" name="to_reply_id" value="<?php echo $reply_bbs[0]['reply_id']; ?>"></input>
@@ -81,10 +85,10 @@
         <?php else: ?>
             <h4 style="text-align: center;">投稿するにはログインするか会員登録をしてください</h4 style="text-align: center;">
             <div class="button-panel">
-                <a href="<?php echo base_url('login'); ?>"><input type="submit" class="button" value="ログインする"></input></a>
+                <a href="<?php echo base_url('sign_in'); ?>"><input type="submit" class="button" value="ログインする"></input></a>
             </div>
             <div class="button-panel">
-                <a href="<?php echo base_url('signup'); ?>"><input type="submit" class="button" value="会員登録する"></input></a>
+                <a href="<?php echo base_url('sign_up'); ?>"><input type="submit" class="button" value="会員登録する"></input></a>
             </div>
         <?php endif; ?>
             </form>

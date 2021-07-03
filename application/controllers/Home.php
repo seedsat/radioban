@@ -13,7 +13,7 @@ class Home extends MY_Controller {
   {
     /* ページャー作成 */
     $offset = $param;
-    $config['base_url']   = 'http://xs291437.xsrv.jp/radio-board/';
+    $config['base_url']   = base_url();
     $config['per_page']   = 10;
     $config['num_links']  = 5;
     $config['first_link'] = '最初';
@@ -205,13 +205,16 @@ class Home extends MY_Controller {
   /* 退会（親スレは残して子スレは削除） */
   public function unsubscribe()
   {
-    $userid = $this->session->userdata('user_id');
+    $user_id = $this->session->userdata('user_id');
+
     /* usersから削除 */
-    $this->users_model->delete_user($userid);
+    $this->users_model->delete_user($user_id);
+
     /* replyから返信した投稿を削除 */
-    $this->threads_model->delete_reply($userid);
+    $this->threads_model->delete_reply($user_id);
+
     /* goodからいいねIDを削除 */
-    $this->goods_model->delete_after_unsubscribe($userid);
+    $this->goods_model->delete_after_unsubscribe($user_id);
 
     /* 退会後にsessionを切ってトップにリダイレクト */
     $this->session->sess_destroy();

@@ -15,14 +15,14 @@ class Thread extends MY_Controller {
     $session_data = $this->user_session();
 
     /* 番組選択プルダウン */
-    $selectprograms = $this->programs_model->get_program();
-    foreach($selectprograms as $selectprogram)
+    $select_programs = $this->programs_model->get_program();
+    foreach($select_programs as $select_program)
     {
-      $data['broadcast_programs'][$selectprogram['broadcast_name']] = $selectprogram['broadcast_id'];
-      $data['select_programs'][$selectprogram['program_name']][$selectprogram['program_id']][] = array(
-        'broadcast_id' => $selectprogram['broadcast_id'],
-        'program_id'   => $selectprogram['program_id'],
-        'program_name' => $selectprogram['program_name'],
+      $data['broadcast_programs'][$select_program['broadcast_name']] = $select_program['broadcast_id'];
+      $data['select_programs'][$select_program['program_name']][$select_program['program_id']][] = array(
+        'broadcast_id' => $select_program['broadcast_id'],
+        'program_id'   => $select_program['program_id'],
+        'program_name' => $select_program['program_name'],
       );
     }
     /* 番組選択プルダウン */
@@ -33,8 +33,8 @@ class Thread extends MY_Controller {
       if($this->form_validation->run('post'))
       {
         $post = $this->input->post();
-        $userdata = $this->users_model->check_userdata($session_data['user_email'], $post['user_password'], $session_data['user_id']);
-        if($userdata == TRUE)
+        $user_data = $this->users_model->check_userdata($session_data['user_email'], $post['user_password'], $session_data['user_id']);
+        if($user_data == TRUE)
         {
           $this->threads_model->insert_post_content($post);
           redirect('');
@@ -49,9 +49,9 @@ class Thread extends MY_Controller {
     {
       if($this->form_validation->run('tpost'))
       {
-        $userdata = $this->users_model->check_twitter_userdata($this->session->userdata('id_str'));
+        $user_data = $this->users_model->check_twitter_userdata($this->session->userdata('id_str'));
 
-        if($userdata == TRUE)
+        if($user_data == TRUE)
         {
           $post = $this->input->post();
           $this->threads_model->insert_post_content($post, $session_data['user_id']);
@@ -167,11 +167,12 @@ class Thread extends MY_Controller {
 
   private function user_session()
   {
-    $data['user_email'] = $this->session->userdata('user_email');
-    $data['user_id']    = $this->session->userdata('user_id');
-    $data['is_login']   = $this->session->userdata('is_login');
-    $data['twitter_name']   = $this->session->userdata('twitter_name');
-    $data['id_str']   = $this->session->userdata('id_str');
+    $data['user_email']   = $this->session->userdata('user_email');
+    $data['user_id']      = $this->session->userdata('user_id');
+    $data['is_login']     = $this->session->userdata('is_login');
+    $data['twitter_name'] = $this->session->userdata('twitter_name');
+    $data['id_str']       = $this->session->userdata('id_str');
+    
     return $data;
   }
 }

@@ -46,11 +46,11 @@
 			<div class="thread">
 				<?php foreach($program_bbs as $pb ): ?>
 				<div class="title">
-					<h2>【<?php echo $pb['thread_title']; ?>】</h2>
-					<p><?php echo $pb['username']; ?>&nbsp;投稿日：<?php echo date('Y/n/j', strtotime($pb['create_date'])); ?>&nbsp;<?php echo date('G:i', strtotime($pb['create_date'])); ?></p>
+					<h2>【<?php echo $pb['title']; ?>】</h2>
+					<p><?php echo $pb['user_name']; ?>&nbsp;投稿日：<?php echo date('Y/n/j', strtotime($pb['created_at'])); ?>&nbsp;<?php echo date('G:i', strtotime($pb['created_at'])); ?></p>
 				</div>
 				<div class="content">
-					<p><?php echo nl2br($pb['thread_content']); ?></p>
+					<p><?php echo nl2br($pb['content']); ?></p>
 				</div>
 				<?php endforeach; ?>
 			</div>
@@ -61,8 +61,12 @@
 					<input type="text" name="reply_title" placeholder="タイトル" value="<?php echo set_value('reply_title'); ?>"></input>
 				</div>
 				<div class="form-item">
-					<span style="color:red;"><?php echo form_error('username'); ?></span>
-					<input type="text" name="username" placeholder="ユーザーネーム" value="<?php echo $username; ?>"></input>
+					<span style="color:red;"><?php echo form_error('user_name'); ?></span>
+					<?php if($is_login == '1'): ?>
+						<input type="text" name="username" placeholder="ユーザーネーム" value="<?php echo $user_name; ?>"></input>
+					<?php  else: ?>
+						<input type="text" name="username" placeholder="ユーザーネーム" value="<?php echo $twitter_name; ?>"></input>
+					<?php endif; ?>
 				</div>
 				<div class="form-item">
 					<span style="color:red;"><?php echo form_error('reply_content'); ?></span>
