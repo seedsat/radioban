@@ -7,13 +7,12 @@ class Home extends Admin_controller {
     public function __construct()
     {
         parent::__construct();
-        $this->data['is_admin_login'] = $this->session->userdata('is_admin_login');
     }
 
     /* TOPページ */
     public function index()
     {
-        $data['is_admin_login'] = $this->data['is_admin_login'];
+        $data['is_admin_login'] = $this->session->userdata('is_admin_login');
         if($data['is_admin_login'] === "1")
         {
             // 前回を最新のログイン時間の取得
@@ -32,8 +31,8 @@ class Home extends Admin_controller {
             $data['count_reply'] = count($count_reply);
 
             // $login_timeの間に問い合わせされた数
-            // $count_contact = $this->contact_model->get_login_time_contact($login_time);
-            // $data['count_contact'] = count($count_contact);
+            $count_contact = $this->contacts_model->get_login_time_contact($login_time);
+            $data['count_contact'] = count($count_contact);
 
             $this->admin_show_view('admin/index', $data);
         }

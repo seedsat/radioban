@@ -21,9 +21,9 @@
                                 <?php foreach($all_contacts as $contact): ?>
                                 <tr class="even gradeC">
                                     <td><?php echo $contact['contact_id']; ?></td>
-                                    <td><?php echo $contact['contact_title']; ?></td>
-                                    <td><?php echo $contact['useremail']; ?></td>
-                                    <td><?php echo date('Y/n/j H:i', strtotime($contact['create_date'])); ?></td>
+                                    <td><?php echo $contact['title']; ?></td>
+                                    <td><?php echo $contact['user_email']; ?></td>
+                                    <td><?php echo date('Y/n/j H:i', strtotime($contact['created_at'])); ?></td>
                                     <td><a href="<?php echo base_url('admin/contact/contact_detail/').$contact['contact_id']; ?>"><button class="btn btn-primary" type="button">詳細</button></a></td>
                                 </tr>
                                 <?php endforeach; ?>

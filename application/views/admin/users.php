@@ -14,6 +14,7 @@
                                     <th>ユーザーID</th>
                                     <th>ユーザー名</th>
                                     <th>ユーザーアドレス</th>
+                                    <th>登録日</th>
                                     <th>詳細</th>
                                     <th>削除</th>
                                 </tr>
@@ -35,6 +36,9 @@
                                         <?php else: ?>
                                             Twitterで登録
                                         <?php endif; ?>
+                                    </td>
+                                    <td>
+                                    <?php echo date('Y/n/j H:i:s', strtotime($user['created_at'])); ?>
                                     </td>
                                     <td><a href="<?php echo base_url('admin/users/detail/').$user['user_id']; ?>"><button class="btn btn-primary" type="button">詳細</button></a></td>
                                     <td><a href="<?php echo base_url('admin/users/delete/').$user['user_id']; ?>"><button class="btn btn-danger" type="button" onClick="return confirm('削除していいですか？');">削除</button></a></td>

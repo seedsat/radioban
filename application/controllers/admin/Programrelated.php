@@ -25,7 +25,6 @@ class Programrelated extends Admin_controller {
         $data['program_title']      = $data['broadcast_programs'][0]['broadcast_name'];
         $this->admin_show_view('admin/broadcasters_details', $data);
     }
-    
 
     /* 番組一覧 */
     public function programs_lists()

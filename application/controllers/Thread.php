@@ -172,7 +172,7 @@ class Thread extends MY_Controller {
     $data['is_login']     = $this->session->userdata('is_login');
     $data['twitter_name'] = $this->session->userdata('twitter_name');
     $data['id_str']       = $this->session->userdata('id_str');
-    
+
     return $data;
   }
 }

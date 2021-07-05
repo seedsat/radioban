@@ -124,6 +124,7 @@ class Users_model extends CI_Model {
   /* 全ユーザーの取得 */
   public function get_all_users()
   {
+    $this->db->order_by('created_at', 'desc');
     return $this->db->get('users')->result_array();
   }
 
@@ -163,11 +164,11 @@ class Users_model extends CI_Model {
   public function insert_contact($data)
   {
     $contact_data = array(
-      'contact_title' => $data['contact_title'],
-      'username'      => $data['username'],
-      'useremail'     => $data['useremail'],
-      'contact'       => $data['contact'],
-      'create_date'   => date('Y/m/d H:i:s'),
+      'title'       => $data['title'],
+      'user_name'   => $data['user_name'],
+      'user_email'  => $data['user_email'],
+      'contact'     => $data['contact'],
+      'create_date' => date('Y/m/d H:i:s'),
     );
     $this->db->insert('contact', $contact_data);
   }

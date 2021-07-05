@@ -93,7 +93,7 @@
                                 <a href="<?php echo base_url('admin/contact/all_contacts'); ?>"><i class="far fa-envelope"></i> 問い合わせ</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('admin/login/logout'); ?>" class="active"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                                <a href="<?php echo base_url('admin/login/logout'); ?>" class="active"><i class="fas fa-sign-out-alt"></i> ログアウト</a>
                             </li>
                         </ul>
                     </div>

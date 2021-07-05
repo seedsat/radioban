@@ -71,17 +71,17 @@ $config = array(
 	// 問い合わせ
 	'contact' => array(
 		array(
-				'field' => 'username',
+				'field' => 'user_name',
 				'label' => 'ラジオネーム',
 				'rules' => 'required'
 		),
 		array(
-				'field' => 'useremail',
+				'field' => 'user_email',
 				'label' => 'メールアドレス',
 				'rules' => 'required'
 		),
 		array(
-				'field' => 'contact',
+				'field' => 'contents',
 				'label' => '質問内容',
 				'rules' => 'required'
 		),

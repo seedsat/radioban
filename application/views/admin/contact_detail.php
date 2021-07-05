@@ -17,22 +17,22 @@
                                 </tr>
                                 <tr>
                                     <th>問い合わせ件名</th>
-                                    <td><?php echo $cd['contact_title']; ?></td>
+                                    <td><?php echo $cd['title']; ?></td>
                                 </tr>
                                 <tr>
                                     <th>問い合わせ内容</th>
-                                    <td><?php echo $cd['contact']; ?></td>
+                                    <td><?php echo $cd['contents']; ?></td>
                                 </tr>
                                 <tr>
                                     <th>問い合わせ者</th>
-                                    <td><a href="<?php echo base_url('admin/users/detail/').$cd['user_id']; ?>"><?php echo $cd['username']; ?></a></td>
+                                    <td><a href="<?php echo base_url('admin/users/detail/').$cd['user_id']; ?>"><?php echo $cd['user_name']; ?></a></td>
                                 </tr>
                                 <tr>
                                     <th>問い合わせ日</th>
-                                    <td><?php echo date('Y/n/j H:i:s', strtotime($cd['create_date'])); ?></td>
+                                    <td><?php echo date('Y/n/j H:i:s', strtotime($cd['created_at'])); ?></td>
                                 </tr>
                                 <tr colapsn="2">
-                                    <th><a href="mailto:<?php echo $cd['useremail']; ?>"><button class="btn btn-primary" type="button">送信</button></th>
+                                    <th><a href="mailto:<?php echo $cd['user_email']; ?>"><button class="btn btn-primary" type="button">送信</button></th>
                                 </tr>
                             </tbody>
                             <?php endforeach; ?>

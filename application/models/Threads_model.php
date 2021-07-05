@@ -21,6 +21,7 @@ class Threads_model extends CI_Model {
     public function get_all_thread()
     {
         $this->db->join('programs', 'threads.program_id = programs.program_id');
+        $this->db->order_by('created_at', 'desc');
         return $this->db->get('threads')->result_array();
     }
 

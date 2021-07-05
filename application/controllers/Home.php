@@ -120,19 +120,20 @@ class Home extends MY_Controller {
   /* お問い合わせ */
   public function contact()
   {
+    $data = $this->user_session();
     $data['error'] = "";
 
     if($this->form_validation->run('contact'))
     {
       $post = $this->input->post();
-      if($post['contact_title'] === "0")
+      if($post['title'] == "")
       {
         $data['error'] = "問い合わせ内容を選んでください。";
       }
       else
       {
         $data['error'] = "";
-        $this->users_model->insert_contact($post);
+        $this->contacts_model->insert_contact($post, $data['user_id']);
         redirect('');
       }
     }
@@ -219,5 +220,17 @@ class Home extends MY_Controller {
     /* 退会後にsessionを切ってトップにリダイレクト */
     $this->session->sess_destroy();
     redirect('');
+  }
+
+  private function user_session()
+  {
+    $data['user_email']   = $this->session->userdata('user_email');
+    $data['user_name']   = $this->session->userdata('user_name');
+    $data['user_id']      = $this->session->userdata('user_id');
+    $data['is_login']     = $this->session->userdata('is_login');
+    $data['twitter_name'] = $this->session->userdata('twitter_name');
+    $data['id_str']       = $this->session->userdata('id_str');
+
+    return $data;
   }
 }
