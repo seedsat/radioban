@@ -12,6 +12,7 @@ class User extends MY_Controller {
       if ($post['kiyaku'] == '1')
       {
         $this->users_model->insert_user($post);
+        $this->users_model->user_sing_in($post);
         redirect();
       }
       else
