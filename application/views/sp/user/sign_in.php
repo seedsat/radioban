@@ -6,12 +6,12 @@
         <span style="color:red;"><?php echo $error; ?></span>
     <?php endif; ?>
     <div class="form">
-        <form method="post" action="<?php echo base_url('login'); ?>">
+        <form method="post" action="<?php echo base_url('sign_in'); ?>">
         <div class="sp-form-item">
-        <input type="text" name="email" required="required" placeholder="メールアドレス"></input>
+        <input type="text" name="user_email" required="required" placeholder="メールアドレス"></input>
         </div>
         <div class="sp-form-item">
-        <input type="password" name="password" required="required" placeholder="パスワード"></input>
+        <input type="password" name="user_password" required="required" placeholder="パスワード"></input>
         </div>
         <div class="sp-button-panel">
         <input type="submit" class="button-pink" title="login" value="ログインする"></input>

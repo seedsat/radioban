@@ -71,7 +71,7 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <?php if($is_login == "1"): ?>
-                                <li><a href="#">こんにちは【<?php echo $username; ?>】さん</a></li>
+                                <li><a href="#">こんにちは【<?php echo $user_name; ?>】さん</a></li>
                             <?php elseif ($is_login == "2"): ?>
                                 <li><a href="#">こんにちは【<?php echo $twitter_name; ?>】さん</a></li>
                             <?php else: ?>

@@ -163,18 +163,13 @@ class Home extends MY_Controller {
     $data = array();
     $data['user_id'] = $this->session->userdata('user_id');
 
-    $data['user_datas'] = $this->users_model->detail_user($this->session->userdata('user_id'));
+    $data['user_datas'] = $this->users_model->detail_user($data['user_id']);
 
     if(empty($data['user_datas']))
     {
         redirect('sign_in');
     }
 
-    /*
-      * 登録情報の変更
-      * is_login = 1：メルアドでの登録
-      * is_login = 2：twitterでの登録
-    */
     if($this->session->userdata['is_login'] == "1")
     {
       if($this->form_validation->run('change') == true)

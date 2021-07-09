@@ -24,7 +24,9 @@
       <p>投稿日：<?php echo date('Y/n/j', strtotime($pb['created_at'])); ?>&nbsp;<?php echo date('G:i', strtotime($pb['created_at'])); ?></p>
       <div class="bbs-button">
         <p class="reply"><a href="<?php echo base_url('thread/reply/').$pb['dir_name'].'/'.$pb['thread_id']; ?>">返信する</a></p>
+        <?php if( $is_login == "2" ): ?>
         <p class="tweet" onClick="return confirm('ツイートしていいですか？');" ><a href="<?php echo base_url('oauth/post_tweet/').$pb['dir_name'].'/'.$pb['thread_id']; ?>"><i class="fab fa-twitter"></i></a></p>
+        <?php endif; ?>
       </div>
     </div>
     <div class="content">

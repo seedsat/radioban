@@ -30,16 +30,22 @@
                     <input type="text" name="username" placeholder="ユーザーネーム" value="<?php echo $twitter_name; ?>"></input>
                 <?php endif; ?>
             </div>
-            <div class="sp-form-item">
+            <?php if($is_login == '1'): ?>
+                <div class="sp-form-item">
+                <span style="color:red;"><?php echo form_error('user_password'); ?></span>
+                    <input type="password" name="user_password" placeholder="パスワード" ?></input>
+                </div>
+            <?php endif; ?>
+                <div class="sp-form-item">
                 <span style="color:red;"><?php echo form_error('reply_content'); ?></span>
                 <textarea rows="10" cols="30" name="reply_content" placeholder="返信内容" class="postarea" value="<?php echo set_value('reply_content'); ?>"></textarea>
             </div>
             <?php if($is_login == 1): ?>
-                <input type="hidden" name="userid" value="<?php echo $user_id; ?>" ></input>
-                <input type="hidden" name="useremail" value="<?php echo $usermail; ?>" ></input>
+                <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" ></input>
+                <input type="hidden" name="user_email" value="<?php echo $user_email; ?>" ></input>
             <?php elseif($is_login == 2): ?>
-                <input type="hidden" name="userid" value="<?php echo $user_id; ?>" ></input>
-                <input type="hidden" name="islogin" value="<?php echo $is_login; ?>" ></input>
+                <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" ></input>
+                <input type="hidden" name="is_login" value="<?php echo $is_login; ?>" ></input>
             <?php endif; ?>
             <input type="hidden" name="thread_id" value="<?php echo $program_bbs[0]['thread_id']; ?>"></input>
             <input type="hidden" name="program_id" value="<?php echo $program_bbs[0]['program_id']; ?>"></input>

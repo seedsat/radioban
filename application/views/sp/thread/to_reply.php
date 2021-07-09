@@ -24,16 +24,22 @@
             <div class="sp-form-item">
                 <span style="color:red;"><?php echo form_error('user_name'); ?></span>
                 <?php if($is_login == '1'): ?>
-                    <input type="text" name="username" placeholder="ユーザーネーム" value="<?php echo $user_name; ?>"></input>
+                    <input type="text" name="user_name" placeholder="ユーザーネーム" value="<?php echo $user_name; ?>"></input>
                 <?php else: ?>
-                    <input type="text" name="username" placeholder="ユーザーネーム" value="<?php echo $twitter_name; ?>"></input>
+                    <input type="text" name="user_name" placeholder="ユーザーネーム" value="<?php echo $twitter_name; ?>"></input>
                 <?php endif; ?>
             </div>
+            <?php if($is_login == '1'): ?>
+            <div class="sp-form-item">
+                <span style="color:red;"><?php echo form_error('user_password'); ?></span>
+                    <input type="password" name="user_password" placeholder="パスワード" ?></input>
+                </div>
+            <?php endif; ?>
             <div class="sp-form-item">
                 <span style="color:red;"><?php echo form_error('reply_content'); ?></span>
                 <textarea rows="10" cols="38" name="reply_content" placeholder="返信内容"  value="<?php echo set_value('to_reply_content'); ?>"></textarea>
             </div>
-            <input type="hidden" name="useremail" value="<?php echo $user_email; ?>" ></input>
+            <input type="hidden" name="user_email" value="<?php echo $user_email; ?>" ></input>
             <input type="hidden" name="thread_id" value="<?php echo $reply_bbs[0]['thread_id']; ?>"></input>
             <input type="hidden" name="program_id" value="<?php echo $reply_bbs[0]['program_id']; ?>"></input>
             <input type="hidden" name="to_reply_id" value="<?php echo $reply_bbs[0]['reply_id']; ?>"></input>

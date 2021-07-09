@@ -73,7 +73,7 @@ class Thread extends MY_Controller {
   // 各掲示板ページ（親投稿と返信投稿）
   public function bbs($dirname, $thread_id)
   {
-    $data['user_id']    = $this->session->userdata('user_id');
+    $data = $this->user_session();
 
     // 親投稿
     $data['program_bbs'] = $this->threads_model->get_bbs($dirname, $thread_id);

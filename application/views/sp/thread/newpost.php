@@ -36,19 +36,19 @@
             <?php if($is_login == 1): ?>
                 <div class="sp-form-item">
                     <span style="color:red;"><?php if(isset($error)):?><?php echo $error; ?><?php endif; ?></span>
-                    <span style="color:red;"><?php echo form_error('userpassword'); ?></span>
-                    <input type="password" id="password" name="userpassword" placeholder="パスワード"></input>
+                    <span style="color:red;"><?php echo form_error('user_password'); ?></span>
+                    <input type="password" id="password" name="user_password" placeholder="パスワード"></input>
                 </div>
             <?php endif; ?>
             <div class="sp-form-item">
                 <span style="color:red;"><?php echo form_error('thread_content'); ?></span>
-                <textarea rows="10" cols="30" name="thread_content" placeholder="投稿内容" class="postarea" value="<?php echo set_value('thread_content'); ?>"></textarea>
+                <textarea rows="10" cols="30" name="thread_content" placeholder="投稿内容" class="postarea" value="<?php echo set_value('thread_thread_content'); ?>"></textarea>
             </div>
             <?php if($is_login == 1): ?>
-                <input type="hidden" name="useremail" value="<?php echo $usermail; ?>" ></input>
+                <input type="hidden" name="useremail" value="<?php echo $user_email; ?>" ></input>
                 <input type="hidden" name="userid" value="<?php echo $user_id; ?>" ></input>
             <?php elseif($is_login == 2): ?>
-                <input type="hidden" name="islogin" value="<?php echo $is_login; ?>" ></input>
+                <input type="hidden" name="is_login" value="<?php echo $is_login; ?>" ></input>
             <?php endif; ?>
             <div class="sp-button-panel">
                 <input type="submit" class="button-pink" value="投稿する" onClick="return confirm('投稿してよろしいですか？');"></input>

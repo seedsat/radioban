@@ -24,7 +24,7 @@
 				</div>
 				<div class="form-item">
 					<span style="color:red;"><?php echo form_error('user_name'); ?></span>
-					<input type="text" name="user_name" placeholder="ユーザーネーム" value="<?php echo $user_name; ?>"></input>
+					<input type="text" name="username" placeholder="ユーザーネーム" value="<?php echo $user_name; ?>"></input>
 				</div>
 				<div class="form-item">
 					<span style="color:red;"><?php echo form_error('user_password'); ?></span>

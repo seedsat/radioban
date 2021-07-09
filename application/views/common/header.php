@@ -100,7 +100,7 @@
               <div class="sidebar-search">
                 <div>
                   <div class="input-group">
-                    <form action="#" method="post" id="search">
+                    <form action="<?php echo base_url(); ?>" method="post" id="search">
                       <input  class="form-control" type="text" name="search" placeholder=" 番組名を検索" id="search-text">
                       <button type="submit" class="search-submit">
                         <i class="fas fa-search"></i>
