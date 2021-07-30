@@ -57,7 +57,7 @@ Pass  : 111111
 非ログイン時<br>
 名前はゲストで表示させ、ログインんと新規登録リンクを表示
 
-[![Image from Gyazo](https://i.gyazo.com/4ee6476dcc8a1730767682f486001469.png)](https://gyazo.com/4ee6476dcc8a1730767682f486001469)
+[![Image from Gyazo](https://i.gyazo.com/0d13948ec768ef2779447e31af112efb.png)](https://gyazo.com/0d13948ec768ef2779447e31af112efb)
 
 <br>
 <br>
@@ -65,12 +65,12 @@ Pass  : 111111
 ログイン時<br>
 名前には登録した名前を表示させ、退会とログアウトリンクを表示
 
-[![Image from Gyazo](https://i.gyazo.com/d29d47c25de292aa258a274348edd262.png)](https://gyazo.com/d29d47c25de292aa258a274348edd262)
+[![Image from Gyazo](https://i.gyazo.com/5312c0e3ec34a9faba71cda4e346e3be.png)](https://gyazo.com/5312c0e3ec34a9faba71cda4e346e3be)
 
 <br>
 
 番組関連をクリック時
-[![Image from Gyazo](https://i.gyazo.com/4a45070dea44851c9ec532adfc24a6b3.png)](https://gyazo.com/4a45070dea44851c9ec532adfc24a6b3)
+[![Image from Gyazo](https://i.gyazo.com/a24a6290b7713ad6fa0281d6deba7137.png)](https://gyazo.com/a24a6290b7713ad6fa0281d6deba7137)
 
 <br>
 <br>
@@ -229,7 +229,7 @@ Pass  : 111111
 ## 1.TOPページ
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/2983a9a18d79ab112460161fa66d7bf8.png)](https://gyazo.com/2983a9a18d79ab112460161fa66d7bf8)
+[![Image from Gyazo](https://i.gyazo.com/60def8f3f1979265576951f1d803bed1.png)](https://gyazo.com/60def8f3f1979265576951f1d803bed1)
 
 - 最終ログイン時以降に、新規登録・新規投稿・返信・問い合わせがあればその件数を表示
 - サイドバーには各種リンクを表示
@@ -240,7 +240,7 @@ Pass  : 111111
 ## 2.ユーザー情報ページ
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/30af657b2d90e1e29aac0ef4f2621b4b.png)](https://gyazo.com/30af657b2d90e1e29aac0ef4f2621b4b)
+[![Image from Gyazo](https://i.gyazo.com/caa384152dc92066f808a5e1378fc98a.png)](https://gyazo.com/caa384152dc92066f808a5e1378fc98a)
 
 - ユーザー一覧を表示させ、メルアド登録なのかTwitterから登録したのかを表示
 - 登録時間が新しい順に表示
@@ -249,18 +249,18 @@ Pass  : 111111
 <br>
 <br>
 
-## 2.ユーザー詳細ページ
+## 3.ユーザー詳細ページ
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/7190b7539fed208e80863ecb560b4bad.png)](https://gyazo.com/7190b7539fed208e80863ecb560b4bad)
+[![Image from Gyazo](https://i.gyazo.com/c38a98c602cdabac1ccd6f8a096eef58.png)](https://gyazo.com/c38a98c602cdabac1ccd6f8a096eef58)
 
 <br>
 <br>
 
-## 3.投稿一覧ページ
+## 4.投稿一覧ページ
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/103c284e282a38496e6e61d9de4dcdc3.png)](https://gyazo.com/103c284e282a38496e6e61d9de4dcdc3)
+[![Image from Gyazo](https://i.gyazo.com/02875b275e03d80577725ead98701e2a.png)](https://gyazo.com/02875b275e03d80577725ead98701e2a)
 
 - ユーザー一覧を表示させ、メルアド登録なのかTwitterから登録したのかを表示
 - 登録時間が新しい順に表示
@@ -269,14 +269,14 @@ Pass  : 111111
 <br>
 <br>
 
-## 4.投稿詳細ページ
+## 5.投稿詳細ページ
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/3d9176887b87545e83801650370de8b0.png)](https://gyazo.com/3d9176887b87545e83801650370de8b0)
+[![Image from Gyazo](https://i.gyazo.com/327559c5335b695ebb97b7616ca16d7a.png)](https://gyazo.com/327559c5335b695ebb97b7616ca16d7a)
 
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/131e403c8f66913bbd830a0af4b96685.png)](https://gyazo.com/131e403c8f66913bbd830a0af4b96685)
+[![Image from Gyazo](https://i.gyazo.com/7f9419b74d4c579be99720eea1920eaa.png)](https://gyazo.com/7f9419b74d4c579be99720eea1920eaa)
 
 - 親投稿と全ての返信を表示
 - ユーザー名にリンクを付けてユーザー詳細に遷移
@@ -284,18 +284,18 @@ Pass  : 111111
 <br>
 <br>
 
-## 5.番組追加ページ
+## 6.番組追加ページ
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/8950ce1214f10117157f8bdc9d9be406.png)](https://gyazo.com/8950ce1214f10117157f8bdc9d9be406)
-
-<br>
-
-[![Image from Gyazo](https://i.gyazo.com/d8f0b1c57e72c0af29dcca32ee333d35.png)](https://gyazo.com/d8f0b1c57e72c0af29dcca32ee333d35)
+[![Image from Gyazo](https://i.gyazo.com/e395871179613fe60671d0ce5c7a1e64.png)](https://gyazo.com/e395871179613fe60671d0ce5c7a1e64)
 
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/abe762fba99f3bb968bd66e62d8b9b5e.png)](https://gyazo.com/abe762fba99f3bb968bd66e62d8b9b5e)
+[![Image from Gyazo](https://i.gyazo.com/93fadf1ae4ffa38bff6346d36b096198.png)](https://gyazo.com/93fadf1ae4ffa38bff6346d36b096198)
+
+<br>
+
+[![Image from Gyazo](https://i.gyazo.com/6fc9372e2802b280b195bca1eaeeb956.png)](https://gyazo.com/6fc9372e2802b280b195bca1eaeeb956)
 
 - front_meta.phpに番組情報を追記する
 - 番組詳細情報を管理画面から登録する
