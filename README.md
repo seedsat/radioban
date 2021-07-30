@@ -54,7 +54,7 @@ Pass  : 111111
 <br>
 <br>
 
-非ログイン時<br>
+- 非ログイン時<br>
 名前はゲストで表示させ、ログインんと新規登録リンクを表示
 
 [![Image from Gyazo](https://i.gyazo.com/0d13948ec768ef2779447e31af112efb.png)](https://gyazo.com/0d13948ec768ef2779447e31af112efb)
@@ -62,14 +62,14 @@ Pass  : 111111
 <br>
 <br>
 
-ログイン時<br>
+- ログイン時<br>
 名前には登録した名前を表示させ、退会とログアウトリンクを表示
 
 [![Image from Gyazo](https://i.gyazo.com/5312c0e3ec34a9faba71cda4e346e3be.png)](https://gyazo.com/5312c0e3ec34a9faba71cda4e346e3be)
 
 <br>
 
-番組関連をクリック時
+- 番組関連をクリック時
 [![Image from Gyazo](https://i.gyazo.com/a24a6290b7713ad6fa0281d6deba7137.png)](https://gyazo.com/a24a6290b7713ad6fa0281d6deba7137)
 
 <br>
@@ -136,7 +136,7 @@ Pass  : 111111
 <br>
 <br>
 
-ログインページはメールアドレスとTwitterによるログイン機能を実装
+- ログインページはメールアドレスとTwitterによるログイン機能を実装
 
 <br>
 <br>
@@ -150,7 +150,7 @@ Pass  : 111111
 <br>
 <br>
 
-会員登録はメールアドレスのみの登録。<br>
+- 会員登録はメールアドレスのみの登録。<br>
 パスワード表示にチェックを入れると表示させる
 
 <br>
@@ -165,7 +165,7 @@ Pass  : 111111
 <br>
 <br>
 
-放送局一覧を表示。<br>
+- 放送局一覧を表示。<br>
 右上の検索バーに文字を入れると自動検索する。
 
 <br>
@@ -180,7 +180,7 @@ Pass  : 111111
 <br>
 <br>
 
-番組一覧を表示。<br>
+- 番組一覧を表示。<br>
 右上の検索バーに文字を入れると自動検索する。
 
 <br>
@@ -273,9 +273,9 @@ Pass  : 111111
 
 [![Image from Gyazo](https://i.gyazo.com/02875b275e03d80577725ead98701e2a.png)](https://gyazo.com/02875b275e03d80577725ead98701e2a)
 
-- ユーザー一覧を表示させ、メルアド登録なのかTwitterから登録したのかを表示
+- 投稿一覧を表示させ、コメント数。いいね数を表示
 - 登録時間が新しい順に表示
-- 詳細・削除リンクを設置
+- 詳細リンクを設置
 
 <br>
 <br>
