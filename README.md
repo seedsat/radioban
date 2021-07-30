@@ -120,7 +120,7 @@ Pass  : 111111
 <br>
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/181f7acfe3860c9de7ffd19e9da38180.png)](https://gyazo.com/181f7acfe3860c9de7ffd19e9da38180)
+[![Image from Gyazo](https://i.gyazo.com/e6c3f134b2da6cce0eaf88cb80eb6cff.png)](https://gyazo.com/e6c3f134b2da6cce0eaf88cb80eb6cff)
 
 <br>
 <br>
@@ -134,7 +134,7 @@ Pass  : 111111
 <br>
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/359a66bbc28f15bb938b5f9abfb0b611.png)](https://gyazo.com/359a66bbc28f15bb938b5f9abfb0b611)
+[![Image from Gyazo](https://i.gyazo.com/fc67a69aec804556d46a243253e4b90f.png)](https://gyazo.com/fc67a69aec804556d46a243253e4b90f)
 
 <br>
 <br>
@@ -149,7 +149,7 @@ Pass  : 111111
 <br>
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/9684965fe1077152c1ccf1b28b863c9c.png)](https://gyazo.com/9684965fe1077152c1ccf1b28b863c9c)
+[![Image from Gyazo](https://i.gyazo.com/6c4ed5d4d44f81b4ba6ede7fcb045d36.png)](https://gyazo.com/6c4ed5d4d44f81b4ba6ede7fcb045d36)
 
 <br>
 <br>
@@ -164,7 +164,7 @@ Pass  : 111111
 <br>
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/2655a0543c5570a19d5637fc6d2bb20e.png)](https://gyazo.com/2655a0543c5570a19d5637fc6d2bb20e)
+[![Image from Gyazo](https://i.gyazo.com/58fbae70d35af2007a7fc985a839d174.png)](https://gyazo.com/58fbae70d35af2007a7fc985a839d174)
 
 <br>
 <br>
@@ -182,7 +182,7 @@ Pass  : 111111
 - 非ログイン時<br>
 ログインか会員登録を促す。
 
-[![Image from Gyazo](https://i.gyazo.com/67663f4d381dae7d9710402afb6b7189.png)](https://gyazo.com/67663f4d381dae7d9710402afb6b7189)
+[![Image from Gyazo](https://i.gyazo.com/293daa6f8d8c34fb37ea53c02269e1ed.png)](https://gyazo.com/293daa6f8d8c34fb37ea53c02269e1ed)
 
 <br>
 
@@ -190,7 +190,7 @@ Pass  : 111111
 先に放送局をプルダウンから選択し、番組はその放送局に対応する番組が全てプルダウンに現れるのでそこから自分が投稿したい番組を選ぶ。
 
 
-[![Image from Gyazo](https://i.gyazo.com/408ab1658366d23d5a737cc8ad6a903a.png)](https://gyazo.com/408ab1658366d23d5a737cc8ad6a903a)
+[![Image from Gyazo](https://i.gyazo.com/fc32c29e15fb5997c2a5785c42077b42.png)](https://gyazo.com/fc32c29e15fb5997c2a5785c42077b42)
 
 <br>
 <br>
@@ -199,13 +199,13 @@ Pass  : 111111
 <br>
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/a824f712580973b793a162bdf731d402.png)](https://gyazo.com/a824f712580973b793a162bdf731d402)
+[![Image from Gyazo](https://i.gyazo.com/7387eead5424c7f7cd2c3e7bab70da02.png)](https://gyazo.com/7387eead5424c7f7cd2c3e7bab70da02)
 
 - 番組情報と投稿内容を表示させ、Twitterボタンを押すとTwitterに投稿内容が投稿できる
 
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/e6ed627d008fe8c678243b922e2b92e0.png)](https://gyazo.com/e6ed627d008fe8c678243b922e2b92e0)
+[![Image from Gyazo](https://i.gyazo.com/b885e87ecf9d4b4c3afd1139b9664a8d.png)](https://gyazo.com/b885e87ecf9d4b4c3afd1139b9664a8d)
 
 - 投稿に対する返信一覧を表示
 
@@ -216,7 +216,7 @@ Pass  : 111111
 <br>
 <br>
 
-[![Image from Gyazo](https://i.gyazo.com/2fd993d12376ef2ab0661f853200d4f3.png)](https://gyazo.com/2fd993d12376ef2ab0661f853200d4f3)
+[![Image from Gyazo](https://i.gyazo.com/09018cd99f20a5c52c334f4d1185b29f.png)](https://gyazo.com/09018cd99f20a5c52c334f4d1185b29f)
 
 - 投稿内容とログイン中のユーザーネームは表示させた状態で返信できる
 
