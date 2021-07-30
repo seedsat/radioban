@@ -12,7 +12,7 @@ class Login extends Admin_controller {
     /* TOPページ */
     public function index()
     {
-        $data = "";
+        $data = array();
 
         if($this->form_validation->run('admin_login'))
         {

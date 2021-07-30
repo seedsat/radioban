@@ -27,10 +27,10 @@
                                 <label>放送日</label>
                                 <select class="form-control" name="program_day">
                                     <?php foreach($days as $day): ?>
-                                        <?php if($day['day'] == $pg['day']): ?>
-                                            <option value="<?php echo $day['day_id']; ?>" selected><?php echo $pg['day']; ?></option>
+                                        <?php if($day['day_id'] == $pg['day_id']): ?>
+                                            <option value="<?php echo $day['id']; ?>" selected><?php echo $day['day_name']; ?></option>
                                             <?php else: ?>
-                                            <option value="<?php echo $day['day_id']; ?>"><?php echo $day['day']; ?></option>
+                                            <option value="<?php echo $day['id']; ?>"><?php echo $day['day_name']; ?></option>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 </select>
@@ -60,14 +60,14 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <span style="color:red;"><?php echo form_error('program_starttime'); ?></span>
+                                <span style="color:red;"><?php echo form_error('starttime'); ?></span>
                                 <label>開始時間</label>
-                                <input class="form-control" placeholder="（例）24:00" name="program_starttime" value="<?php echo $pg['program_starttime']; ?>">
+                                <input class="form-control" placeholder="（例）24:00" name="starttime" value="<?php echo $pg['starttime']; ?>">
                             </div>
                             <div class="form-group">
-                                <span style="color:red;"><?php echo form_error('program_finishtime'); ?></span>
+                                <span style="color:red;"><?php echo form_error('finishtime'); ?></span>
                                 <label>終了時間</label>
-                                <input class="form-control" placeholder="（例）30:00" name="program_finishtime" value="<?php echo $pg['program_finishtime']; ?>">
+                                <input class="form-control" placeholder="（例）30:00" name="finishtime" value="<?php echo $pg['finishtime']; ?>">
                             </div>
                             <div class="form-group">
                                 <span style="color:red;"><?php echo form_error('officialsite'); ?></span>
