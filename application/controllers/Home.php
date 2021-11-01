@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/* HomeController */
+
 // 2021/10/31
 class Home extends MY_Controller {
 
