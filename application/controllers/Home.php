@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-// 2021/10/31
 class Home extends MY_Controller {
 
   public function __construct()
