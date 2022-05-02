@@ -94,7 +94,7 @@ class Programs_model extends CI_Model {
         );
         $this->db->insert('programs', $insert_data);
     }
-
+/**aaaaaa */
     /* 番組情報の変更 */
     public function change_program_information($data)
     {
